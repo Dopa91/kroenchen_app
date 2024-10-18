@@ -6,49 +6,51 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(24.0),
-      child: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/k_logo.png"),
-          ),
-        ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 42),
-                child: Column(
-                  children: [
-                    MyIndividualButton(
-                      newText: "Edit Profil",
-                      nextSite: () =>
-                          Navigator.pushNamed(context, "/placeholder"),
-                      icon: Icons.edit,
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    MyIndividualButton(
-                      newText: "Logout",
-                      nextSite: () =>
-                          Navigator.pushNamed(context, "/loginscreen"),
-                      icon: Icons.logout,
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    const MyIndividualButton(
-                      newText: "Konto Löschen",
-                      nextSite: null,
-                      icon: Icons.delete_forever,
-                    )
-                  ],
-                ),
-              )
-            ],
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/k_logo.png"),
+              ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 42),
+                  child: Column(
+                    children: [
+                      MyIndividualButton(
+                        newText: "Edit Profil",
+                        nextSite: () =>
+                            Navigator.pushNamed(context, "/placeholder"),
+                        icon: Icons.edit,
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      MyIndividualButton(
+                        newText: "Logout",
+                        nextSite: () =>
+                            Navigator.pushNamed(context, "/loginscreen"),
+                        icon: Icons.logout,
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      const MyIndividualButton(
+                        newText: "Konto Löschen",
+                        nextSite: null,
+                        icon: Icons.delete_forever,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

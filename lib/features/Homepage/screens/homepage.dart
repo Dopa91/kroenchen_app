@@ -5,36 +5,38 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(
-          24.0,
-        ),
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/k_logo.png"),
-            ),
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(
+            24.0,
           ),
-          child: const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  CircleAvatar(
-                    radius: 60,
-                    backgroundImage: AssetImage("assets/images/bober.jpg"),
-                  ),
-                ],
+          child: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/k_logo.png"),
               ),
-              Text(
-                "Willkommen,",
-              ),
-              Text(
-                "MusterNutzer",
-              ),
-              Text("Placeholder für Kalendar"),
-            ],
+            ),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 60,
+                      backgroundImage: AssetImage("assets/images/bober.jpg"),
+                    ),
+                  ],
+                ),
+                Text(
+                  "Willkommen,",
+                ),
+                Text(
+                  "MusterNutzer",
+                ),
+                Text("Placeholder für Kalendar"),
+              ],
+            ),
           ),
         ),
       ),
