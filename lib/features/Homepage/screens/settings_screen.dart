@@ -18,23 +18,35 @@ class SettingsScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Column(
-                children: [
-                  MyIndividualButton(
-                    newText: "Logout",
-                    nextSite: () =>
-                        Navigator.pushNamed(context, "/loginscreen"),
-                    icon: Icons.logout,
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  const MyIndividualButton(
-                    newText: "Konto Löschen",
-                    nextSite: null,
-                    icon: Icons.delete_forever,
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 42),
+                child: Column(
+                  children: [
+                    MyIndividualButton(
+                      newText: "Edit Profil",
+                      nextSite: () =>
+                          Navigator.pushNamed(context, "/placeholder"),
+                      icon: Icons.edit,
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    MyIndividualButton(
+                      newText: "Logout",
+                      nextSite: () =>
+                          Navigator.pushNamed(context, "/loginscreen"),
+                      icon: Icons.logout,
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    const MyIndividualButton(
+                      newText: "Konto Löschen",
+                      nextSite: null,
+                      icon: Icons.delete_forever,
+                    )
+                  ],
+                ),
               )
             ],
           ),
