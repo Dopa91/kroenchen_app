@@ -1,40 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:kroenchen_app/config/colors.dart';
 
 final ThemeData lightTheme = ThemeData(
-  fontFamily: "Roboto",
-  textTheme: const TextTheme(
-    bodyMedium: TextStyle(
-      fontSize: 18,
-      fontFamily: "Outfit",
+    fontFamily: "Roboto",
+    textTheme: const TextTheme(
+      bodyMedium: TextStyle(
+        fontSize: 18,
+        fontFamily: "Outfit",
+      ),
+      headlineMedium: TextStyle(
+        fontSize: 42,
+        fontFamily: "Outfit",
+      ),
+      bodySmall: TextStyle(
+        fontSize: 14,
+        fontFamily: "Outfit",
+      ),
     ),
-    headlineMedium: TextStyle(
-      fontSize: 42,
-      fontFamily: "Outfit",
-    ),
-    bodySmall: TextStyle(
-      fontSize: 14,
-      fontFamily: "Outfit",
-    ),
-  ),
-);
+    scaffoldBackgroundColor: backgroundColorPurple);
 
 final ThemeData darkTheme = ThemeData(
-  fontFamily: "Outfit",
-  textTheme: const TextTheme(
-    bodyMedium: TextStyle(
-      fontSize: 18,
-      fontFamily: "Outfit",
-      color: Colors.white,
+    fontFamily: "Outfit",
+    textTheme: const TextTheme(
+      bodyMedium: TextStyle(
+        fontSize: 18,
+        fontFamily: "Outfit",
+        color: Colors.white,
+      ),
+      headlineMedium: TextStyle(
+        fontSize: 42,
+        fontFamily: "Outfit",
+        color: Colors.white,
+      ),
+      bodySmall: TextStyle(
+        fontSize: 14,
+        fontFamily: "Outfit",
+        color: Colors.white,
+      ),
     ),
-    headlineMedium: TextStyle(
-      fontSize: 42,
-      fontFamily: "Outfit",
-      color: Colors.white,
-    ),
-    bodySmall: TextStyle(
-      fontSize: 14,
-      fontFamily: "Outfit",
-      color: Colors.white,
-    ),
-  ),
-);
+    scaffoldBackgroundColor: backgroundColorPurple);
