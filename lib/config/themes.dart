@@ -8,11 +8,11 @@ final ThemeData lightTheme = ThemeData(
       fontFamily: "Outfit",
     ),
     headlineMedium: TextStyle(
-      fontSize: 30,
+      fontSize: 42,
       fontFamily: "Outfit",
     ),
     bodySmall: TextStyle(
-      fontSize: 16,
+      fontSize: 14,
       fontFamily: "Outfit",
     ),
   ),
@@ -22,16 +22,19 @@ final ThemeData darkTheme = ThemeData(
   fontFamily: "Outfit",
   textTheme: const TextTheme(
     bodyMedium: TextStyle(
-      fontSize: 21,
+      fontSize: 18,
       fontFamily: "Outfit",
+      color: Colors.white,
     ),
     headlineMedium: TextStyle(
       fontSize: 42,
       fontFamily: "Outfit",
+      color: Colors.white,
     ),
     bodySmall: TextStyle(
       fontSize: 14,
       fontFamily: "Outfit",
+      color: Colors.white,
     ),
   ),
 );
