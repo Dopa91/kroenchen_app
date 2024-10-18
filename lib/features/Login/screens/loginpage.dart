@@ -9,73 +9,76 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         forceMaterialTransparency: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset("assets/images/k_logo.png"),
-            ],
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 12, left: 24, right: 24),
-            child: Row(
+      body: Padding(
+        padding: const EdgeInsets.only(
+          left: 24,
+          right: 24,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "Login",
-                  style: TextStyle(
-                    fontSize: 32,
-                  ),
-                ),
+                Image.asset("assets/images/k_logo.png"),
               ],
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(bottom: 12, left: 24, right: 24),
-            child: Row(
-              children: [
-                Text(
-                  "Melde dich jetzt an",
-                  style: TextStyle(
-                    fontSize: 22,
+            const Padding(
+              padding: EdgeInsets.only(
+                top: 12,
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    "Login",
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 12, left: 24, right: 24),
-            child: TextFieldBox(
+            const Padding(
+              padding: EdgeInsets.only(
+                bottom: 12,
+              ),
+              child: Row(
+                children: [
+                  Text(
+                    "Melde dich jetzt an",
+                  ),
+                ],
+              ),
+            ),
+            const TextFieldBox(
               text: 'Emaill',
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 12, left: 24, right: 24),
-            child: TextFieldBox(
+            const TextFieldBox(
               text: 'Password',
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 64, right: 24, left: 24),
-            child: MyIndividualButton(
-              newText: "Login",
-              nextSite: () => Navigator.pushNamed(context, "/homepage"),
-              icon: Icons.arrow_forward,
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 72,
+              ),
+              child: MyIndividualButton(
+                newText: "Login",
+                nextSite: () => Navigator.pushNamed(context, "/homepage"),
+                icon: Icons.arrow_forward,
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 12, right: 24, left: 24),
-            child: MyIndividualButton(
-              newText: "Registrieren",
-              nextSite: () =>
-                  Navigator.pushNamed(context, "/registerscreenstart"),
-              icon: Icons.arrow_forward,
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 12,
+              ),
+              child: MyIndividualButton(
+                newText: "Registrieren",
+                nextSite: () =>
+                    Navigator.pushNamed(context, "/registerscreenstart"),
+                icon: Icons.arrow_forward,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
