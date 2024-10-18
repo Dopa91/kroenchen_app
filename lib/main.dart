@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kroenchen_app/config/themes.dart';
+import 'package:kroenchen_app/features/Login/screens/loginpage.dart';
 import 'package:kroenchen_app/features/WelcomeScreen/screens/welcome_screen.dart';
 
 void main() {
@@ -14,6 +15,9 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       theme: lightTheme,
       home: const WelcomeScreen(),
+      routes: {
+        '/loginscreen': (context) => const LoginScreen(),
+      },
     );
   }
 }
