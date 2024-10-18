@@ -22,7 +22,6 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset("assets/images/k_logo.png"),
               ],
