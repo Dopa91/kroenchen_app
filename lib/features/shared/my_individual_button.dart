@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kroenchen_app/config/colors.dart';
 
 class MyIndividualButton extends StatelessWidget {
   const MyIndividualButton({
@@ -20,7 +21,7 @@ class MyIndividualButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 16, 97, 219),
+          color: buttonBlue,
           borderRadius: BorderRadius.circular(24),
         ),
         child: Row(
@@ -31,11 +32,12 @@ class MyIndividualButton extends StatelessWidget {
             Text(
               newText,
               style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
+                fontSize: 16,
+              ),
             ),
-            const Expanded(child: SizedBox()),
+            const Expanded(
+              child: SizedBox(),
+            ),
             Icon(
               icon,
               color: Colors.white,
