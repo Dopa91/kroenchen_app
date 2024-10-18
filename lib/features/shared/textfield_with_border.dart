@@ -11,13 +11,16 @@ class TextFieldBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        hintText: text,
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: brighterPurple),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: text,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: brighterPurple),
+          ),
+          border: const OutlineInputBorder(),
         ),
-        border: const OutlineInputBorder(),
       ),
     );
   }
