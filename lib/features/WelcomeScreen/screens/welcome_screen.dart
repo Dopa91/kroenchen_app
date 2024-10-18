@@ -10,47 +10,42 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 12),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Kroenchen",
-                  style: TextStyle(
-                    fontSize: 32,
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 12),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Kroenchen",
+                    style: TextStyle(
+                      fontSize: 32,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 32),
-            Center(
-              child: Image.asset(
+                ],
+              ),
+              const SizedBox(height: 32),
+              Image.asset(
                 "assets/images/k_logo.png",
                 height: 512,
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Text(
+              const Text(
                 "Herzlich Willkommen",
                 style: TextStyle(
                   fontSize: 32,
                 ),
               ),
-            ),
-            const SizedBox(height: 32),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: MyIndividualButton(
+              const SizedBox(height: 32),
+              MyIndividualButton(
                 newText: 'Reise Starten',
                 nextSite: () => Navigator.pushNamed(context, "/loginscreen"),
                 icon: Icons.arrow_forward,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
