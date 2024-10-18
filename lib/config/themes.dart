@@ -3,19 +3,13 @@ import 'package:kroenchen_app/config/colors.dart';
 
 final ThemeData lightTheme = ThemeData(
     fontFamily: "Roboto",
-    textTheme: const TextTheme(
-      bodyMedium: TextStyle(
-        fontSize: 18,
-        fontFamily: "Outfit",
-      ),
-      headlineMedium: TextStyle(
-        fontSize: 42,
-        fontFamily: "Outfit",
-      ),
-      bodySmall: TextStyle(
-        fontSize: 14,
-        fontFamily: "Outfit",
-      ),
+    textTheme: TextTheme(
+      bodyMedium:
+          TextStyle(fontSize: 18, fontFamily: "Outfit", color: brighterPurple),
+      headlineMedium:
+          TextStyle(fontSize: 42, fontFamily: "Outfit", color: brighterPurple),
+      bodySmall:
+          TextStyle(fontSize: 14, fontFamily: "Outfit", color: brighterPurple),
     ),
     scaffoldBackgroundColor: backgroundColorPurple);
 
