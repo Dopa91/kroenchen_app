@@ -19,10 +19,31 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  fonts:
+    - family: Outfit
+      fonts:
+        - asset: assets/fonts/Outfit-Black900.ttf
+          weight: 900
+        - asset: assets/fonts/Outfit-Bold700.ttf
+          weight: 700
+        - asset: assets/fonts/Outfit-ExtraBold800.ttf
+          weight: 800
+        - asset: assets/fonts/Outfit-ExtraLight200.ttf
+          weight: 200
+        - asset: assets/fonts/Outfit-Light300.ttf
+          weight: 300
+        - asset: assets/fonts/Outfit-Medium500.ttf
+          weight: 500
+        - asset: assets/fonts/Outfit-Regular400.ttf
+          weight: 400
+        - asset: assets/fonts/Outfit-SemiBold600.ttf
+          weight: 600
+        - asset: assets/fonts/Outfit-Thin100.ttf
+          weight: 100
+
 flutter_launcher_icons:
   android: true
   ios: true
   image_path: assets/icon/Kroenchen_app_icon.png
 
-fonts:
-- family: Outfit
+
