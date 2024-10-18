@@ -46,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: MyIndividualButton(
                 newText: 'Reise Starten',
-                nextSite: () => Navigator.pushNamed(context, "/loginpage"),
+                nextSite: () => Navigator.pushNamed(context, "/loginscreen"),
                 icon: Icons.arrow_forward,
               ),
             ),
