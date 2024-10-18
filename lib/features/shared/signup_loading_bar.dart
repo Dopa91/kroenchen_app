@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kroenchen_app/config/colors.dart';
 
-class LoadingBar extends StatelessWidget {
-  const LoadingBar({
+class SignUpLoadingBar extends StatelessWidget {
+  const SignUpLoadingBar({
     this.borderLeft = 12,
     this.heightBoxOne = 12,
     this.heightBoxTwo = 12,
@@ -28,19 +28,19 @@ class LoadingBar extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-              color: buttonBlue,
-              borderRadius: BorderRadius.horizontal(
-                left: Radius.circular(borderLeft),
-                right: Radius.circular(borderRight),
-              )),
+            color: buttonBlue,
+            borderRadius: BorderRadius.circular(24),
+          ),
           width: widthBoxOne,
           height: heightBoxOne,
         ),
         Container(
           decoration: BoxDecoration(
-              color: Colors.grey,
-              borderRadius:
-                  BorderRadius.horizontal(right: Radius.circular(borderRight))),
+            color: Colors.grey,
+            borderRadius: BorderRadius.horizontal(
+              right: Radius.circular(borderRight),
+            ),
+          ),
           width: widthBoxTwo,
           height: heightBoxTwo,
         )
