@@ -98,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                     onPressed: null,
                     icon: Icon(
                       Icons.apple,
-                      size: 48,
+                      size: 36,
                     ),
                   ),
                 ),
@@ -118,7 +118,7 @@ class LoginScreen extends StatelessWidget {
                     onPressed: null,
                     icon: Icon(
                       Icons.g_mobiledata,
-                      size: 48,
+                      size: 36,
                     ),
                   ),
                 ),
