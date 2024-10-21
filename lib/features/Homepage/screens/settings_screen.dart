@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kroenchen_app/features/Homepage/widgets/profil_account_picture.dart';
 import 'package:kroenchen_app/features/shared/my_individual_button.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -25,10 +26,7 @@ class SettingsScreen extends StatelessWidget {
                     height: 16,
                   ),
                 ),
-                const CircleAvatar(
-                  radius: 60,
-                  backgroundImage: AssetImage("assets/images/bober.jpg"),
-                ),
+                const ProfilAccountPicture(),
                 const Expanded(
                   flex: 5,
                   child: SizedBox(

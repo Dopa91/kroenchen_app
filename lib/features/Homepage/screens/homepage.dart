@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kroenchen_app/features/Homepage/widgets/profil_account_picture.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -22,10 +23,7 @@ class Homepage extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    CircleAvatar(
-                      radius: 60,
-                      backgroundImage: AssetImage("assets/images/bober.jpg"),
-                    ),
+                    ProfilAccountPicture(),
                   ],
                 ),
                 SizedBox(
