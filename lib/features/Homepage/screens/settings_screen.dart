@@ -17,8 +17,24 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                const Expanded(
+                  flex: 2,
+                  child: SizedBox(
+                    height: 16,
+                  ),
+                ),
+                const CircleAvatar(
+                  radius: 60,
+                  backgroundImage: AssetImage("assets/images/bober.jpg"),
+                ),
+                const Expanded(
+                  flex: 5,
+                  child: SizedBox(
+                    height: 16,
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 42),
                   child: Column(
