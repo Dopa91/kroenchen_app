@@ -3,15 +3,15 @@ import 'package:kroenchen_app/features/Homepage/screens/diary_screen.dart';
 import 'package:kroenchen_app/features/Homepage/screens/homepage.dart';
 import 'package:kroenchen_app/features/Homepage/screens/settings_screen.dart';
 
-class BottomNavigationBarScreen extends StatefulWidget {
-  const BottomNavigationBarScreen({super.key});
+class BottomNavigationBarMain extends StatefulWidget {
+  const BottomNavigationBarMain({super.key});
 
   @override
-  State<BottomNavigationBarScreen> createState() =>
-      _BottomNavigationBarScreenState();
+  State<BottomNavigationBarMain> createState() =>
+      _BottomNavigationBarMainState();
 }
 
-class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
+class _BottomNavigationBarMainState extends State<BottomNavigationBarMain> {
   final List<Widget> widgets = [
     const Homepage(),
     const DiaryScreen(),

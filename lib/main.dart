@@ -26,7 +26,7 @@ class MainApp extends StatelessWidget {
         '/registerscreentwo': (context) => const RegisterScreenTwo(),
         '/registerscreenthree': (context) => const RegisterScreenThree(),
         '/registerscreenfinish': (context) => const RegisterScreenFinish(),
-        '/homepage': (context) => const BottomNavigationBarScreen(),
+        '/homepage': (context) => const BottomNavigationBarMain(),
       },
     );
   }
