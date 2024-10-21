@@ -6,6 +6,24 @@ class DiaryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        mini: true,
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (BuildContext context) {
+              return const SizedBox(
+                height: 256,
+                width: 256,
+                child: Center(
+                  child: Text("Hello"),
+                ),
+              );
+            },
+          );
+        },
+        child: const Icon(Icons.add),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
