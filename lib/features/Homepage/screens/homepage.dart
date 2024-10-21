@@ -28,6 +28,9 @@ class Homepage extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 16,
+                ),
                 Text(
                   "Willkommen,",
                 ),
