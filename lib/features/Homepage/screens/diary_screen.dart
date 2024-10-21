@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kroenchen_app/config/colors.dart';
 
 class DiaryScreen extends StatelessWidget {
   const DiaryScreen({super.key});
@@ -7,6 +8,7 @@ class DiaryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        backgroundColor: buttonBlue,
         mini: true,
         onPressed: () {
           showModalBottomSheet(
@@ -22,7 +24,10 @@ class DiaryScreen extends StatelessWidget {
             },
           );
         },
-        child: const Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+          color: brighterPurple,
+        ),
       ),
       body: SafeArea(
         child: Padding(
