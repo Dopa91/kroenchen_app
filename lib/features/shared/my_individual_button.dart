@@ -21,6 +21,7 @@ class MyIndividualButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
+          border: Border.all(color: brighterPurple),
           color: buttonBlue,
           borderRadius: BorderRadius.circular(24),
         ),
