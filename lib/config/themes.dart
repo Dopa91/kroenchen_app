@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kroenchen_app/config/colors.dart';
 
 final ThemeData lightTheme = ThemeData(
-    fontFamily: "Roboto",
+    fontFamily: "Outfit",
     textTheme: TextTheme(
       bodyMedium:
           TextStyle(fontSize: 18, fontFamily: "Outfit", color: brighterPurple),
