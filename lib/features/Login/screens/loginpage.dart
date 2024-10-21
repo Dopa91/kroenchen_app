@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kroenchen_app/config/colors.dart';
+import 'package:kroenchen_app/features/Login/widgets/sign_up_icon_button.dart';
 import 'package:kroenchen_app/features/shared/my_individual_button.dart';
 import 'package:kroenchen_app/features/shared/textfield_with_border.dart';
 
@@ -81,45 +81,17 @@ class LoginScreen extends StatelessWidget {
               padding: EdgeInsets.all(16),
               child: Divider(),
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: buttonBlue,
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(
-                        36,
-                      ),
-                    ),
-                  ),
-                  child: const IconButton(
-                    onPressed: null,
-                    icon: Icon(
-                      Icons.apple,
-                      size: 36,
-                    ),
-                  ),
+                SignUpIconButton(
+                  icon: Icons.apple_outlined,
                 ),
-                const SizedBox(
+                SizedBox(
                   width: 8,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: buttonBlue,
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(
-                        36,
-                      ),
-                    ),
-                  ),
-                  child: const IconButton(
-                    onPressed: null,
-                    icon: Icon(
-                      Icons.g_mobiledata,
-                      size: 36,
-                    ),
-                  ),
+                SignUpIconButton(
+                  icon: Icons.g_mobiledata_outlined,
                 ),
               ],
             )
