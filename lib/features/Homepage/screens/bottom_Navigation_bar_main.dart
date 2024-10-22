@@ -25,6 +25,11 @@ class _BottomNavigationBarMainState extends State<BottomNavigationBarMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
+        indicatorShape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(8),
+          ),
+        ),
         indicatorColor: brighterPurple,
         selectedIndex: currentIndex,
         onDestinationSelected: (index) {
