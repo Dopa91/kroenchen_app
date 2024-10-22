@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kroenchen_app/features/Login/widgets/sign_in_divider.dart';
 import 'package:kroenchen_app/features/Login/widgets/sign_up_icon_button.dart';
 import 'package:kroenchen_app/features/shared/my_individual_button.dart';
 import 'package:kroenchen_app/features/shared/textfield_with_border.dart';
@@ -60,7 +61,7 @@ class LoginScreen extends StatelessWidget {
             ),
             const Padding(
               padding: EdgeInsets.all(16),
-              child: Divider(),
+              child: SignInDivider(),
             ),
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
