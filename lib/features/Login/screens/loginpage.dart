@@ -23,6 +23,9 @@ class LoginScreen extends StatelessWidget {
             Image.asset("assets/images/k_logo.png"),
             const Row(
               children: [
+                SizedBox(
+                  width: 8,
+                ),
                 Text(
                   "Login \nMelde dich jetzt an",
                 ),
