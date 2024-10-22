@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:kroenchen_app/config/colors.dart';
 
 class SignUpIconButton extends StatelessWidget {
@@ -7,7 +8,7 @@ class SignUpIconButton extends StatelessWidget {
     required this.icon,
   });
 
-  final IconData icon;
+  final IoniconsData icon;
 
   @override
   Widget build(BuildContext context) {
