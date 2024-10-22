@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:kroenchen_app/features/Login/widgets/sign_in_divider.dart';
 import 'package:kroenchen_app/features/Login/widgets/sign_up_icon_button.dart';
 import 'package:kroenchen_app/features/shared/my_individual_button.dart';
@@ -33,7 +34,7 @@ class LoginScreen extends StatelessWidget {
               ],
             ),
             const TextFieldBox(
-              text: 'Emaill',
+              text: 'Email',
             ),
             const TextFieldBox(
               text: 'Password',
@@ -67,13 +68,13 @@ class LoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SignUpIconButton(
-                  icon: Icons.apple_outlined,
+                  icon: Ionicons.logo_apple,
                 ),
                 SizedBox(
                   width: 8,
                 ),
                 SignUpIconButton(
-                  icon: Icons.g_mobiledata_outlined,
+                  icon: Ionicons.logo_google,
                 ),
               ],
             )
