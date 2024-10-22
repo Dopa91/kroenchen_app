@@ -19,36 +19,14 @@ class LoginScreen extends StatelessWidget {
           right: 24,
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Column(
+            Image.asset("assets/images/k_logo.png"),
+            const Row(
               children: [
-                Image.asset("assets/images/k_logo.png"),
+                Text(
+                  "Login \nMelde dich jetzt an",
+                ),
               ],
-            ),
-            const Padding(
-              padding: EdgeInsets.only(
-                top: 12,
-              ),
-              child: Row(
-                children: [
-                  Text(
-                    "Login",
-                  ),
-                ],
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(
-                bottom: 12,
-              ),
-              child: Row(
-                children: [
-                  Text(
-                    "Melde dich jetzt an",
-                  ),
-                ],
-              ),
             ),
             const TextFieldBox(
               text: 'Emaill',
