@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kroenchen_app/config/colors.dart';
 
-final ThemeData lightTheme = ThemeData(
+final ThemeData darkTheme = ThemeData(
   fontFamily: "Outfit",
   textTheme: TextTheme(
     bodyMedium: TextStyle(
@@ -23,7 +23,7 @@ final ThemeData lightTheme = ThemeData(
   scaffoldBackgroundColor: backgroundColorPurple,
 );
 
-final ThemeData darkTheme = ThemeData(
+final ThemeData lightTheme = ThemeData(
   fontFamily: "Outfit",
   textTheme: const TextTheme(
     bodyMedium: TextStyle(

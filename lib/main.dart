@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: lightTheme,
+      theme: darkTheme,
       home: const WelcomeScreen(),
       routes: {
         '/loginscreen': (context) => const LoginScreen(),
