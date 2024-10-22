@@ -38,7 +38,7 @@ class RegisterScreenTwo extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(bottom: 48),
                   child: Text(
-                    "Wie möchtest du genannt werden ?",
+                    "Was ist dein Geschlecht ?",
                   ),
                 ),
                 const TextFieldBox(text: "Male"),
