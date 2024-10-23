@@ -12,13 +12,20 @@ void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  bool isSwitched = true;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: darkTheme,
+      theme: isSwitched ? lightTheme : darkTheme,
       home: const WelcomeScreen(),
       routes: {
         '/loginscreen': (context) => const LoginScreen(),
@@ -26,7 +33,14 @@ class MainApp extends StatelessWidget {
         '/registerscreentwo': (context) => const RegisterScreenTwo(),
         '/registerscreenthree': (context) => const RegisterScreenThree(),
         '/registerscreenfinish': (context) => const RegisterScreenFinish(),
-        '/homepage': (context) => const BottomNavigationBarMain(),
+        '/homepage': (context) => BottomNavigationBarMain(
+              isSwitched: isSwitched,
+              onChanged: (bool newValue) {
+                setState(() {
+                  isSwitched = newValue;
+                });
+              },
+            ),
       },
     );
   }
