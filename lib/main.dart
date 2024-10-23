@@ -25,7 +25,9 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: isSwitched ? lightTheme : darkTheme,
+      themeMode: isSwitched ? ThemeMode.light : ThemeMode.dark,
+      theme: lightTheme,
+      darkTheme: darkTheme,
       home: const WelcomeScreen(),
       routes: {
         '/loginscreen': (context) => const LoginScreen(),
