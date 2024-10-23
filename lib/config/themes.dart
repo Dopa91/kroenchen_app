@@ -22,7 +22,7 @@ final ThemeData darkTheme = ThemeData(
     ),
     navigationBarTheme:
         NavigationBarThemeData(backgroundColor: darkerBrighterPurple),
-    scaffoldBackgroundColor: darkerBackgroundColorPurple);
+    scaffoldBackgroundColor: Colors.transparent);
 
 final ThemeData lightTheme = ThemeData(
   fontFamily: "Outfit",
@@ -43,6 +43,7 @@ final ThemeData lightTheme = ThemeData(
       color: Colors.white,
     ),
   ),
+  // primaryColor: backgroundColorPurple,
   navigationBarTheme: NavigationBarThemeData(backgroundColor: brighterPurple),
-  scaffoldBackgroundColor: backgroundColorPurple,
+  scaffoldBackgroundColor: Colors.transparent,
 );
