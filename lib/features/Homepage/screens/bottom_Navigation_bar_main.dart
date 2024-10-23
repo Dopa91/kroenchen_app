@@ -27,7 +27,13 @@ class _BottomNavigationBarMainState extends State<BottomNavigationBarMain> {
     widgets = [
       const Homepage(),
       const DiaryScreen(),
-      SettingsScreen(isSwitched: widget.isSwitched),
+      SettingsScreen(
+        isSwitched: widget.isSwitched,
+        onChanged: (bool newValue) {
+          widget.onChanged(newValue);
+          setState(() {});
+        },
+      ),
     ];
   }
 
@@ -55,7 +61,15 @@ class _BottomNavigationBarMainState extends State<BottomNavigationBarMain> {
               icon: Icon(Icons.settings_outlined), label: "Settings"),
         ],
       ),
-      body: widgets[currentIndex],
+      body: switch (currentIndex) {
+        0 => Homepage(),
+        1 => DiaryScreen(),
+        2 => SettingsScreen(
+            isSwitched: widget.isSwitched,
+            onChanged: widget.onChanged,
+          ),
+        _ => Homepage(),
+      },
     );
   }
 }
