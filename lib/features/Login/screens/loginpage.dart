@@ -48,7 +48,8 @@ class LoginScreen extends StatelessWidget {
                 ),
                 child: MyIndividualButton(
                   newText: "Login",
-                  nextSite: () => Navigator.pushNamed(context, "/homepage"),
+                  nextSite: () =>
+                      Navigator.pushNamed(context, "/bottomnavigationbarmain"),
                   icon: Ionicons.log_in_outline,
                 ),
               ),
@@ -60,12 +61,13 @@ class LoginScreen extends StatelessWidget {
                   newText: "Registrieren",
                   nextSite: () =>
                       Navigator.pushNamed(context, "/registerscreenstart"),
-                  icon: Ionicons.people_circle_outline,
+                  icon: null,
+                  // icon: Ionicons.people_circle_outline,
                 ),
               ),
               const Padding(
                 padding:
-                    EdgeInsets.only(left: 16, right: 16, top: 32, bottom: 16),
+                    EdgeInsets.only(left: 8, right: 8, top: 32, bottom: 32),
                 child: SignInDivider(),
               ),
               const Row(
