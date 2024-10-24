@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:kroenchen_app/features/Homepage/widgets/profil_account_picture.dart';
 import 'package:kroenchen_app/features/shared/background_image_widget.dart';
 import 'package:kroenchen_app/features/shared/my_individual_button.dart';
@@ -51,7 +52,7 @@ class SettingsScreen extends StatelessWidget {
                         newText: "Edit Profil",
                         nextSite: () =>
                             Navigator.pushNamed(context, "/placeholder"),
-                        icon: Icons.edit,
+                        icon: Ionicons.pencil,
                       ),
                       const SizedBox(
                         height: 16,
@@ -60,7 +61,7 @@ class SettingsScreen extends StatelessWidget {
                         newText: "Logout",
                         nextSite: () =>
                             Navigator.pushNamed(context, "/loginscreen"),
-                        icon: Icons.logout,
+                        icon: Ionicons.log_out_outline,
                       ),
                       const SizedBox(
                         height: 16,
@@ -68,7 +69,7 @@ class SettingsScreen extends StatelessWidget {
                       const MyIndividualButton(
                         newText: "Konto Löschen",
                         nextSite: null,
-                        icon: Icons.delete_forever,
+                        icon: Ionicons.trash_bin_outline,
                       )
                     ],
                   ),

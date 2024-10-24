@@ -49,7 +49,7 @@ class LoginScreen extends StatelessWidget {
                 child: MyIndividualButton(
                   newText: "Login",
                   nextSite: () => Navigator.pushNamed(context, "/homepage"),
-                  icon: Icons.arrow_forward,
+                  icon: Ionicons.log_in_outline,
                 ),
               ),
               Padding(
@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                   newText: "Registrieren",
                   nextSite: () =>
                       Navigator.pushNamed(context, "/registerscreenstart"),
-                  icon: Icons.arrow_forward,
+                  icon: Ionicons.people_circle_outline,
                 ),
               ),
               const Padding(
