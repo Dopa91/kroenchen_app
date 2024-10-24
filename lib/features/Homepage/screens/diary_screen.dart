@@ -17,10 +17,13 @@ class DiaryScreen extends StatelessWidget {
               context: context,
               builder: (BuildContext context) {
                 return const SizedBox(
-                  height: 256,
+                  height: 512,
                   width: 256,
                   child: Center(
-                    child: Text("Hello"),
+                    child: Text(
+                      "Placeholder",
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 );
               },
@@ -42,8 +45,7 @@ class DiaryScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          "Hier kommt die Tagebuchfunktion rein, mit übersicht und eintrag erstellen",
-                        ),
+                            "Hier kommt die Tagebuchfunktion rein, mit übersicht und eintrag erstellen"),
                       ],
                     ),
                   ),
