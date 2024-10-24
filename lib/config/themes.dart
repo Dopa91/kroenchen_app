@@ -7,7 +7,7 @@ final ThemeData darkTheme = ThemeData(
     bodyMedium: TextStyle(
       fontSize: 18,
       fontFamily: "Outfit",
-      color: brighterPurple,
+      color: darkerBrighterPurple,
     ),
     headlineMedium: TextStyle(
       fontSize: 42,
@@ -22,6 +22,7 @@ final ThemeData darkTheme = ThemeData(
   ),
   brightness: Brightness.dark,
   navigationBarTheme: NavigationBarThemeData(
+    indicatorColor: darkerBackgroundColorPurple,
     backgroundColor: darkerBrighterPurple,
   ),
   scaffoldBackgroundColor: Colors.transparent,
