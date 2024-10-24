@@ -44,7 +44,7 @@ class LoginScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  top: 72,
+                  top: 64,
                 ),
                 child: MyIndividualButton(
                   newText: "Login",
@@ -54,7 +54,7 @@ class LoginScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  top: 12,
+                  top: 16,
                 ),
                 child: MyIndividualButton(
                   newText: "Registrieren",
@@ -64,7 +64,8 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.all(16),
+                padding:
+                    EdgeInsets.only(left: 16, right: 16, top: 32, bottom: 16),
                 child: SignInDivider(),
               ),
               const Row(
