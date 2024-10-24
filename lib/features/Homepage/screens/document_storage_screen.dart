@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:kroenchen_app/config/colors.dart';
 import 'package:kroenchen_app/features/shared/background_image_widget.dart';
 
@@ -21,7 +22,7 @@ class DocumentStorageScreen extends StatelessWidget {
                   width: 256,
                   child: Center(
                     child: Text(
-                      "Placeholder",
+                      "Function to Scan/take picture & save docs",
                       style: TextStyle(color: Colors.black),
                     ),
                   ),
@@ -30,7 +31,7 @@ class DocumentStorageScreen extends StatelessWidget {
             );
           },
           child: Icon(
-            Icons.add,
+            Ionicons.scan,
             color: brighterPurple,
           ),
         ),
