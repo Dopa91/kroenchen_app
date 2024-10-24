@@ -14,27 +14,27 @@ class Homepage extends StatelessWidget {
             padding: const EdgeInsets.all(
               24.0,
             ),
-            child: Container(
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      ProfilAccountPicture(),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Text(
-                    "Willkommen,",
-                  ),
-                  Text(
-                    "MusterNutzer",
-                  ),
-                  Text("Placeholder für Kalendar"),
-                ],
-              ),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    ProfilAccountPicture(),
+                  ],
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                Text(
+                  "Willkommen,",
+                ),
+                Text(
+                  "MusterNutzer",
+                ),
+                Text(
+                  "Placeholder für Kalendar",
+                ),
+              ],
             ),
           ),
         ),
