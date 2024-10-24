@@ -40,11 +40,11 @@ class _BottomNavigationBarMainState extends State<BottomNavigationBarMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
-        indicatorShape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(8),
-          ),
-        ),
+        // indicatorShape: const RoundedRectangleBorder(
+        //   borderRadius: BorderRadius.all(
+        //     Radius.circular(8),
+        //   ),
+        // ),
         selectedIndex: currentIndex,
         onDestinationSelected: (index) {
           currentIndex = index;
@@ -52,11 +52,24 @@ class _BottomNavigationBarMainState extends State<BottomNavigationBarMain> {
         },
         destinations: const [
           NavigationDestination(
-              icon: Icon(Icons.home_outlined), label: "Homepage"),
+            icon: Icon(
+              Icons.home_outlined,
+              size: 28,
+            ),
+            label: "Homepage",
+          ),
           NavigationDestination(
-              icon: Icon(Icons.book_outlined), label: "Diary"),
+              icon: Icon(
+                Icons.book_outlined,
+                size: 28,
+              ),
+              label: "Diary"),
           NavigationDestination(
-              icon: Icon(Icons.settings_outlined), label: "Settings"),
+              icon: Icon(
+                Icons.settings_outlined,
+                size: 28,
+              ),
+              label: "Settings"),
         ],
       ),
       body: switch (currentIndex) {
