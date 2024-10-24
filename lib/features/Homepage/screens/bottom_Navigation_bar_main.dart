@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:kroenchen_app/features/Homepage/screens/diary_screen.dart';
 import 'package:kroenchen_app/features/Homepage/screens/homepage.dart';
 import 'package:kroenchen_app/features/Homepage/screens/settings_screen.dart';
@@ -53,20 +54,26 @@ class _BottomNavigationBarMainState extends State<BottomNavigationBarMain> {
         destinations: const [
           NavigationDestination(
             icon: Icon(
-              Icons.home_outlined,
+              Ionicons.home_outline,
               size: 28,
             ),
             label: "Homepage",
           ),
           NavigationDestination(
               icon: Icon(
-                Icons.book_outlined,
+                Ionicons.book_outline,
                 size: 28,
               ),
               label: "Diary"),
           NavigationDestination(
               icon: Icon(
-                Icons.settings_outlined,
+                Ionicons.documents_outline,
+                size: 28,
+              ),
+              label: "Dokumente"),
+          NavigationDestination(
+              icon: Icon(
+                Ionicons.settings_outline,
                 size: 28,
               ),
               label: "Settings"),
