@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:kroenchen_app/config/colors.dart';
 
 class BackgroundImageWidget extends StatefulWidget {
-  const BackgroundImageWidget({super.key, required this.child});
+  const BackgroundImageWidget({
+    super.key,
+    required this.child,
+    this.image = const Image(image: AssetImage("assets/images/k_logo.png")),
+  });
 
   final Widget child;
+  final Image? image;
 
   @override
   State<BackgroundImageWidget> createState() => _BackgroundImageWidgetState();
@@ -26,10 +31,7 @@ class _BackgroundImageWidgetState extends State<BackgroundImageWidget> {
           height: MediaQuery.sizeOf(context).height,
           width: MediaQuery.sizeOf(context).width,
           child: Center(
-            child: Image.asset(
-              "assets/images/k_logo.png",
-              width: 150,
-            ),
+            child: widget.image,
           ),
         ),
         Positioned.fill(child: widget.child)
