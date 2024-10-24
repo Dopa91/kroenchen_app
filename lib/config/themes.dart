@@ -20,6 +20,7 @@ final ThemeData darkTheme = ThemeData(
       color: brighterPurple,
     ),
   ),
+  iconTheme: IconThemeData(color: brighterPurple),
   brightness: Brightness.dark,
   navigationBarTheme: NavigationBarThemeData(
     indicatorColor: darkerBackgroundColorPurple,
@@ -48,6 +49,8 @@ final ThemeData lightTheme = ThemeData(
       color: Colors.white,
     ),
   ),
+  iconTheme: IconThemeData(color: Colors.white),
+
   brightness: Brightness.light,
   // primaryColor: backgroundColorPurple,
   navigationBarTheme: NavigationBarThemeData(backgroundColor: brighterPurple),
