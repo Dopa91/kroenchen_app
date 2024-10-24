@@ -63,7 +63,8 @@ class RegisterScreenFinish extends StatelessWidget {
                   ),
                   MyIndividualButton(
                       newText: "Zur Homepage",
-                      nextSite: () => Navigator.pushNamed(context, "/homepage"),
+                      nextSite: () => Navigator.pushNamed(
+                          context, "/bottomnavigationbarmain"),
                       icon: null),
                 ],
               ),

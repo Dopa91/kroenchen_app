@@ -36,7 +36,7 @@ class _MainAppState extends State<MainApp> {
         '/registerscreentwo': (context) => const RegisterScreenTwo(),
         '/registerscreenthree': (context) => const RegisterScreenThree(),
         '/registerscreenfinish': (context) => const RegisterScreenFinish(),
-        '/homepage': (context) => BottomNavigationBarMain(
+        '/bottomnavigationbarmain': (context) => BottomNavigationBarMain(
               isSwitched: isSwitched,
               onChanged: (bool newValue) {
                 setState(() {
