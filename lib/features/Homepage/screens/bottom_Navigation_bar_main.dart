@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:kroenchen_app/features/Homepage/screens/diary_screen.dart';
+import 'package:kroenchen_app/features/Homepage/screens/document_storage_screen.dart';
 import 'package:kroenchen_app/features/Homepage/screens/homepage.dart';
 import 'package:kroenchen_app/features/Homepage/screens/settings_screen.dart';
 
@@ -27,6 +28,7 @@ class _BottomNavigationBarMainState extends State<BottomNavigationBarMain> {
     widgets = [
       const Homepage(),
       const DiaryScreen(),
+      DocumentStorageScreen(),
       SettingsScreen(
         isSwitched: widget.isSwitched,
         onChanged: (bool newValue) {
@@ -82,7 +84,8 @@ class _BottomNavigationBarMainState extends State<BottomNavigationBarMain> {
       body: switch (currentIndex) {
         0 => Homepage(),
         1 => DiaryScreen(),
-        2 => SettingsScreen(
+        2 => DocumentStorageScreen(),
+        3 => SettingsScreen(
             isSwitched: widget.isSwitched,
             onChanged: widget.onChanged,
           ),
