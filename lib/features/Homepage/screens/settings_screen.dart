@@ -54,7 +54,7 @@ class SettingsScreen extends StatelessWidget {
                         icon: Icons.edit,
                       ),
                       const SizedBox(
-                        height: 7.5,
+                        height: 16,
                       ),
                       MyIndividualButton(
                         newText: "Logout",
@@ -63,7 +63,7 @@ class SettingsScreen extends StatelessWidget {
                         icon: Icons.logout,
                       ),
                       const SizedBox(
-                        height: 7.5,
+                        height: 16,
                       ),
                       const MyIndividualButton(
                         newText: "Konto Löschen",
