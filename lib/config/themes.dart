@@ -32,24 +32,24 @@ final ThemeData darkTheme = ThemeData(
 
 final ThemeData lightTheme = ThemeData(
   fontFamily: "Outfit",
-  textTheme: const TextTheme(
+  textTheme: TextTheme(
     bodyMedium: TextStyle(
       fontSize: 18,
       fontFamily: "Outfit",
-      color: Colors.white,
+      color: generalWhite,
     ),
     headlineMedium: TextStyle(
       fontSize: 42,
       fontFamily: "Outfit",
-      color: Colors.white,
+      color: generalWhite,
     ),
     bodySmall: TextStyle(
       fontSize: 14,
       fontFamily: "Outfit",
-      color: Colors.white,
+      color: generalWhite,
     ),
   ),
-  iconTheme: IconThemeData(color: Colors.white),
+  iconTheme: IconThemeData(color: generalWhite),
 
   brightness: Brightness.light,
   // primaryColor: backgroundColorPurple,

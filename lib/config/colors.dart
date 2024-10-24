@@ -7,3 +7,4 @@ Color darkerBrighterPurple = const Color.fromARGB(255, 194, 151, 237);
 Color buttonBlue = const Color.fromARGB(255, 16, 98, 219);
 Color darkerButtonBlue = const Color.fromARGB(255, 8, 52, 117);
 Color brighterButtonBlue = const Color.fromARGB(255, 116, 145, 230);
+Color generalWhite = Color.fromARGB(255, 222, 226, 233);
