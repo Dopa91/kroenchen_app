@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kroenchen_app/config/colors.dart';
 import 'package:kroenchen_app/features/Homepage/screens/diary_screen.dart';
 import 'package:kroenchen_app/features/Homepage/screens/homepage.dart';
 import 'package:kroenchen_app/features/Homepage/screens/settings_screen.dart';
@@ -46,7 +45,6 @@ class _BottomNavigationBarMainState extends State<BottomNavigationBarMain> {
             Radius.circular(8),
           ),
         ),
-        indicatorColor: brighterPurple,
         selectedIndex: currentIndex,
         onDestinationSelected: (index) {
           currentIndex = index;
