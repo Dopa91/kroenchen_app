@@ -41,7 +41,6 @@ class MyIndividualButton extends StatelessWidget {
             ),
             Icon(
               icon,
-              color: Colors.white,
             ),
           ],
         ),
