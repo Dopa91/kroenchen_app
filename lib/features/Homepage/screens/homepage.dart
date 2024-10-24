@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kroenchen_app/features/Homepage/widgets/homepage_calendar.dart';
 import 'package:kroenchen_app/features/Homepage/widgets/profil_account_picture.dart';
 import 'package:kroenchen_app/features/shared/background_image_widget.dart';
 
@@ -14,25 +15,42 @@ class Homepage extends StatelessWidget {
             padding: const EdgeInsets.all(
               24.0,
             ),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    ProfilAccountPicture(),
+                    ProfilAccountPicture(
+                      radius: 64,
+                    ),
+                    SizedBox(
+                      width: 16,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Willkommen,",
+                        ),
+                        Text(
+                          "MusterNutzer",
+                        ),
+                      ],
+                    ),
                   ],
                 ),
                 SizedBox(
                   height: 16,
                 ),
-                Text(
-                  "Willkommen,",
-                ),
-                Text(
-                  "MusterNutzer",
-                ),
-                Text(
-                  "Placeholder für Kalendar",
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(243, 105, 133, 165),
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: HomepageCalendar(),
+                  ),
                 ),
               ],
             ),
