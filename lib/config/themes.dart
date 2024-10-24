@@ -20,8 +20,10 @@ final ThemeData darkTheme = ThemeData(
       color: brighterPurple,
     ),
   ),
-  navigationBarTheme:
-      NavigationBarThemeData(backgroundColor: darkerBrighterPurple),
+  brightness: Brightness.dark,
+  navigationBarTheme: NavigationBarThemeData(
+    backgroundColor: darkerBrighterPurple,
+  ),
   scaffoldBackgroundColor: Colors.transparent,
   // scaffoldBackgroundColor: darkerBackgroundColorPurple,
 );
@@ -45,6 +47,7 @@ final ThemeData lightTheme = ThemeData(
       color: Colors.white,
     ),
   ),
+  brightness: Brightness.light,
   // primaryColor: backgroundColorPurple,
   navigationBarTheme: NavigationBarThemeData(backgroundColor: brighterPurple),
   scaffoldBackgroundColor: Colors.transparent,
