@@ -11,3 +11,25 @@ Color generalWhite = Color.fromARGB(255, 222, 226, 233);
 
 Color darkerBackgroundColorPurple = const Color.fromARGB(255, 75, 0, 150);
 Color backgroundColorPurple = const Color.fromARGB(255, 160, 81, 238);
+
+LinearGradient backgroundColorPurpleGradient = LinearGradient(
+  begin: Alignment(0.39, -0.92),
+  end: Alignment(-0.39, 0.92),
+  colors: [
+    Color.fromARGB(255, 217, 192, 242),
+    Color.fromARGB(255, 194, 151, 237),
+    Color.fromARGB(255, 160, 81, 238),
+    Color.fromARGB(255, 16, 98, 219),
+  ],
+);
+
+LinearGradient daerkerBackgroundColorPurpleGradient = LinearGradient(
+  begin: Alignment(0.39, -0.92),
+  end: Alignment(-0.39, 0.92),
+  colors: [
+    Color.fromARGB(255, 193, 130, 255),
+    Color.fromARGB(255, 184, 124, 244),
+    Color.fromARGB(255, 137, 40, 235),
+    Color.fromARGB(255, 0, 68, 169),
+  ],
+);
