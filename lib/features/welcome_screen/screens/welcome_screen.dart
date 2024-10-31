@@ -22,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Kroenchen",
+                      "",
                       style: TextStyle(
                         fontSize: 32,
                       ),
