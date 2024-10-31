@@ -35,11 +35,12 @@ class RegisterScreenFinish extends StatelessWidget {
                     percentageSizeOne: 1,
                     percentageSizeTwo: 0,
                   ),
-                  const SizedBox(
-                    height: 48,
+                  Expanded(
+                    flex: 1,
+                    child: SizedBox(),
                   ),
                   Expanded(
-                    flex: 10,
+                    flex: 6,
                     child: SingleChildScrollView(
                       child: const Image(
                         image: AssetImage("assets/images/k_logo.png"),
