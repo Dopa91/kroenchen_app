@@ -8,15 +8,15 @@ class SignUpLoadingBar extends StatelessWidget {
     this.heightBoxTwo = 12,
     this.borderRight = 12,
     super.key,
-    required this.widthBoxOne,
-    required this.widthBoxTwo,
+    required this.percentageSizeOne,
+    required this.percentageSizeTwo,
   });
 
-  final double widthBoxOne;
   final double heightBoxOne;
+  final int percentageSizeOne;
 
-  final double widthBoxTwo;
   final double heightBoxTwo;
+  final int percentageSizeTwo;
 
   final double borderLeft;
   final double borderRight;
@@ -26,23 +26,27 @@ class SignUpLoadingBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          decoration: BoxDecoration(
-            color: buttonBlue,
-            borderRadius: BorderRadius.circular(24),
-          ),
-          width: widthBoxOne,
-          height: heightBoxOne,
-        ),
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.grey,
-            borderRadius: BorderRadius.horizontal(
-              right: Radius.circular(borderRight),
+        Expanded(
+          flex: percentageSizeOne,
+          child: Container(
+            decoration: BoxDecoration(
+              color: buttonBlue,
+              borderRadius: BorderRadius.circular(24),
             ),
+            height: heightBoxOne,
           ),
-          width: widthBoxTwo,
-          height: heightBoxTwo,
+        ),
+        Expanded(
+          flex: percentageSizeTwo,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.horizontal(
+                right: Radius.circular(borderRight),
+              ),
+            ),
+            height: heightBoxTwo,
+          ),
         )
       ],
     );
