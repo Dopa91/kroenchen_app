@@ -23,18 +23,20 @@ class _BackgroundImageWidgetState extends State<BackgroundImageWidget> {
     return Stack(
       children: [
         AnimatedContainer(
-          duration: Duration(
-            milliseconds: 30,
-          ),
+          duration: const Duration(milliseconds: 30),
           curve: Curves.easeInOut,
-          color: isLight ? backgroundColorPurple : darkerBackgroundColorPurple,
+          decoration: BoxDecoration(
+            gradient: isLight
+                ? backgroundColorPurpleGradient
+                : daerkerBackgroundColorPurpleGradient,
+          ),
           height: MediaQuery.sizeOf(context).height,
           width: MediaQuery.sizeOf(context).width,
           child: Center(
             child: widget.image,
           ),
         ),
-        Positioned.fill(child: widget.child)
+        Positioned.fill(child: widget.child),
       ],
     );
   }
