@@ -25,7 +25,18 @@ class LoginScreen extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Image.asset("assets/images/k_logo.png"),
+              Expanded(
+                flex: 5,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        "assets/images/k_logo.png",
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               const Row(
                 children: [
                   SizedBox(
@@ -42,33 +53,31 @@ class LoginScreen extends StatelessWidget {
               const TextFieldBox(
                 text: 'Password',
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 64,
-                ),
-                child: MyIndividualButton(
-                  newText: "Login",
-                  nextSite: () =>
-                      Navigator.pushNamed(context, "/bottomnavigationbarmain"),
-                  icon: Ionicons.log_in_outline,
-                ),
+              SizedBox(
+                height: 16,
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 16,
-                ),
-                child: MyIndividualButton(
-                  newText: "Registrieren",
-                  nextSite: () =>
-                      Navigator.pushNamed(context, "/registerscreenstart"),
-                  icon: null,
-                  // icon: Ionicons.people_circle_outline,
-                ),
+              MyIndividualButton(
+                newText: "Login",
+                nextSite: () =>
+                    Navigator.pushNamed(context, "/bottomnavigationbarmain"),
+                icon: Ionicons.log_in_outline,
               ),
-              const Padding(
-                padding:
-                    EdgeInsets.only(left: 8, right: 8, top: 32, bottom: 32),
-                child: SignInDivider(),
+              SizedBox(
+                height: 16,
+              ),
+              MyIndividualButton(
+                newText: "Registrieren",
+                nextSite: () =>
+                    Navigator.pushNamed(context, "/registerscreenstart"),
+                icon: null,
+                // icon: Ionicons.people_circle_outline,
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              SignInDivider(),
+              SizedBox(
+                height: 16,
               ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -83,7 +92,11 @@ class LoginScreen extends StatelessWidget {
                     icon: Ionicons.logo_google,
                   ),
                 ],
-              )
+              ),
+              Expanded(
+                flex: 1,
+                child: SizedBox(),
+              ),
             ],
           ),
         ),

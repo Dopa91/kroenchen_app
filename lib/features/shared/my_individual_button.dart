@@ -19,11 +19,11 @@ class MyIndividualButton extends StatelessWidget {
     return GestureDetector(
       onTap: nextSite,
       child: Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           border: Border.all(color: brighterPurple),
           color: buttonBlue,
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(32),
         ),
         child: Row(
           children: [

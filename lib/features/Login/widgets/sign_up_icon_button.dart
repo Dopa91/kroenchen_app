@@ -14,12 +14,9 @@ class SignUpIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
+        border: Border.all(color: brighterPurple),
         color: buttonBlue,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(
-            36,
-          ),
-        ),
+        borderRadius: BorderRadius.circular(36),
       ),
       child: IconButton(
         onPressed: null,
