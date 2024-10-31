@@ -38,7 +38,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
                 const ProfilAccountPicture(
-                  radius: 128,
+                  radius: 96,
                 ),
                 const Expanded(
                   flex: 5,
