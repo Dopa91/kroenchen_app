@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kroenchen_app/config/themes.dart';
-import 'package:kroenchen_app/features/homepage/screens/bottom_Navigation_bar_main.dart';
+import 'package:kroenchen_app/features/mainscreen/screens/bottom_Navigation_bar_main.dart';
 import 'package:kroenchen_app/features/login/screens/loginpage.dart';
 import 'package:kroenchen_app/features/sign_up/screens/register_screen.dart';
 import 'package:kroenchen_app/features/sign_up/screens/register_screen_finish.dart';
