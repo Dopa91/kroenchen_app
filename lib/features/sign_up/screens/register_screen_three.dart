@@ -32,18 +32,18 @@ class RegisterScreenThree extends StatelessWidget {
                     ),
                   ),
                   const SignUpLoadingBar(
-                    widthBoxOne: 260,
-                    widthBoxTwo: 110,
+                    percentageSizeOne: 2,
+                    percentageSizeTwo: 1,
                   ),
                   const SizedBox(
-                    height: 48,
+                    height: 24,
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 48),
-                    child: Text(
-                      "Was ist deine Diagnose",
-                      style: TextStyle(),
-                    ),
+                  Text(
+                    "Was ist deine Diagnose",
+                    style: TextStyle(),
+                  ),
+                  SizedBox(
+                    height: 24,
                   ),
                   const TextFieldBox(text: "Morbus Crohn"),
                   const TextFieldBox(text: "Colitis Ulcerosa"),

@@ -33,8 +33,8 @@ class RegisterScreenStart extends StatelessWidget {
                     ),
                   ),
                   const SignUpLoadingBar(
-                    widthBoxOne: 75,
-                    widthBoxTwo: 300,
+                    percentageSizeOne: 1,
+                    percentageSizeTwo: 2,
                   ),
                   const SizedBox(
                     height: 48,

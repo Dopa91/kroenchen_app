@@ -32,8 +32,8 @@ class RegisterScreenTwo extends StatelessWidget {
                     ),
                   ),
                   const SignUpLoadingBar(
-                    widthBoxOne: 150,
-                    widthBoxTwo: 220,
+                    percentageSizeOne: 1,
+                    percentageSizeTwo: 1,
                   ),
                   const SizedBox(
                     height: 48,

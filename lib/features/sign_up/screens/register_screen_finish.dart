@@ -32,20 +32,23 @@ class RegisterScreenFinish extends StatelessWidget {
                     ),
                   ),
                   const SignUpLoadingBar(
-                    widthBoxOne: 370,
-                    widthBoxTwo: 0,
+                    percentageSizeOne: 1,
+                    percentageSizeTwo: 0,
                   ),
                   const SizedBox(
                     height: 48,
                   ),
-                  const Image(image: AssetImage("assets/images/k_logo.png")),
-                  const Expanded(
-                    flex: 1,
-                    child: SizedBox(),
+                  Expanded(
+                    flex: 10,
+                    child: SingleChildScrollView(
+                      child: const Image(
+                        image: AssetImage("assets/images/k_logo.png"),
+                      ),
+                    ),
                   ),
                   const Text(
                     "Herzlich Willkommen,",
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 28),
+                    style: TextStyle(fontSize: 28),
                   ),
                   const Padding(
                     padding: EdgeInsets.all(16.0),
@@ -58,7 +61,6 @@ class RegisterScreenFinish extends StatelessWidget {
                     style: TextStyle(),
                   ),
                   const Expanded(
-                    flex: 3,
                     child: SizedBox(),
                   ),
                   MyIndividualButton(
