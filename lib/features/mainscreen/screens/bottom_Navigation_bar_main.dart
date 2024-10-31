@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:kroenchen_app/features/homepage/screens/diary_screen.dart';
-import 'package:kroenchen_app/features/homepage/screens/document_storage_screen.dart';
-import 'package:kroenchen_app/features/homepage/screens/homepage.dart';
-import 'package:kroenchen_app/features/homepage/screens/settings_screen.dart';
+import 'package:kroenchen_app/features/mainscreen/screens/diary_screen.dart';
+import 'package:kroenchen_app/features/mainscreen/screens/document_storage_screen.dart';
+import 'package:kroenchen_app/features/mainscreen/screens/homepage.dart';
+import 'package:kroenchen_app/features/mainscreen/screens/settings_screen.dart';
 
 class BottomNavigationBarMain extends StatefulWidget {
   const BottomNavigationBarMain(
