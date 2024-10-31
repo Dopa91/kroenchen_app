@@ -1,6 +1,6 @@
-import 'package:kroenchen_app/features/repository/models/appointment.dart';
-import 'package:kroenchen_app/features/repository/models/diary.dart';
-import 'package:kroenchen_app/features/repository/models/user.dart';
+import 'package:kroenchen_app/shared/models/appointment.dart';
+import 'package:kroenchen_app/shared/models/diary.dart';
+import 'package:kroenchen_app/shared/models/user.dart';
 
 abstract class DatabaseRepository {
 // Einen neuen Benutzer hinzufügen (createUser)

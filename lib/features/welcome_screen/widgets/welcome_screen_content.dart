@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kroenchen_app/features/shared/my_individual_button.dart';
+import 'package:kroenchen_app/shared/my_individual_button.dart';
 
 class WelcomeScreenContent extends StatelessWidget {
   const WelcomeScreenContent({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:kroenchen_app/config/colors.dart';
-import 'package:kroenchen_app/features/shared/background_image_widget.dart';
+import 'package:kroenchen_app/shared/background_image_widget.dart';
 
 class DocumentStorageScreen extends StatelessWidget {
   const DocumentStorageScreen({super.key});

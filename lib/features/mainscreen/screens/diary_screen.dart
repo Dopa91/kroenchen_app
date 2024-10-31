@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kroenchen_app/config/colors.dart';
-import 'package:kroenchen_app/features/shared/background_image_widget.dart';
+import 'package:kroenchen_app/shared/background_image_widget.dart';
 
 class DiaryScreen extends StatelessWidget {
   const DiaryScreen({super.key});

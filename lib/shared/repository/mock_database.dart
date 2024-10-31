@@ -1,7 +1,7 @@
-import 'package:kroenchen_app/features/repository/data/database_repository.dart';
-import 'package:kroenchen_app/features/repository/models/appointment.dart';
-import 'package:kroenchen_app/features/repository/models/diary.dart';
-import 'package:kroenchen_app/features/repository/models/user.dart';
+import 'package:kroenchen_app/shared/repository/database_repository.dart';
+import 'package:kroenchen_app/shared/models/appointment.dart';
+import 'package:kroenchen_app/shared/models/diary.dart';
+import 'package:kroenchen_app/shared/models/user.dart';
 
 class MockDatabase implements DatabaseRepository {
   List<DiaryEntry> diaryData = [];

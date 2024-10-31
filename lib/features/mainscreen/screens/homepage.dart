@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kroenchen_app/features/mainscreen/widgets/homepage_calendar.dart';
 import 'package:kroenchen_app/features/mainscreen/widgets/profil_account_picture.dart';
-import 'package:kroenchen_app/features/shared/background_image_widget.dart';
+import 'package:kroenchen_app/shared/background_image_widget.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
