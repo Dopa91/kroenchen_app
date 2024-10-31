@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kroenchen_app/features/shared/background_image_widget.dart';
 import 'package:kroenchen_app/features/shared/my_individual_button.dart';
-import 'package:kroenchen_app/features/SignUp/widgets/signup_loading_bar.dart';
+import 'package:kroenchen_app/features/sign_up/widgets/signup_loading_bar.dart';
 import 'package:kroenchen_app/features/shared/textfield_with_border.dart';
 
 class RegisterScreenThree extends StatelessWidget {

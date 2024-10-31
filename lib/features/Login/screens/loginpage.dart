@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:kroenchen_app/features/Login/widgets/sign_in_divider.dart';
-import 'package:kroenchen_app/features/Login/widgets/sign_up_icon_button.dart';
+import 'package:kroenchen_app/features/login/widgets/sign_in_divider.dart';
+import 'package:kroenchen_app/features/login/widgets/sign_up_icon_button.dart';
 import 'package:kroenchen_app/features/shared/background_image_widget.dart';
 import 'package:kroenchen_app/features/shared/my_individual_button.dart';
 import 'package:kroenchen_app/features/shared/textfield_with_border.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kroenchen_app/features/Homepage/widgets/homepage_calendar.dart';
-import 'package:kroenchen_app/features/Homepage/widgets/profil_account_picture.dart';
+import 'package:kroenchen_app/features/homepage/widgets/homepage_calendar.dart';
+import 'package:kroenchen_app/features/homepage/widgets/profil_account_picture.dart';
 import 'package:kroenchen_app/features/shared/background_image_widget.dart';
 
 class Homepage extends StatelessWidget {

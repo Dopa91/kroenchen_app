@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:kroenchen_app/config/themes.dart';
-import 'package:kroenchen_app/features/Homepage/screens/bottom_Navigation_bar_main.dart';
-import 'package:kroenchen_app/features/Login/screens/loginpage.dart';
-import 'package:kroenchen_app/features/SignUp/screens/register_screen.dart';
-import 'package:kroenchen_app/features/SignUp/screens/register_screen_finish.dart';
-import 'package:kroenchen_app/features/SignUp/screens/register_screen_three.dart';
-import 'package:kroenchen_app/features/SignUp/screens/register_screen_two.dart';
-import 'package:kroenchen_app/features/WelcomeScreen/screens/welcome_screen.dart';
+import 'package:kroenchen_app/features/homepage/screens/bottom_Navigation_bar_main.dart';
+import 'package:kroenchen_app/features/login/screens/loginpage.dart';
+import 'package:kroenchen_app/features/sign_up/screens/register_screen.dart';
+import 'package:kroenchen_app/features/sign_up/screens/register_screen_finish.dart';
+import 'package:kroenchen_app/features/sign_up/screens/register_screen_three.dart';
+import 'package:kroenchen_app/features/sign_up/screens/register_screen_two.dart';
+import 'package:kroenchen_app/features/welcome_screen/screens/welcome_screen.dart';
 
 void main() {
   runApp(const MainApp());

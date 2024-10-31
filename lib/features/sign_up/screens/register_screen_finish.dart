@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kroenchen_app/features/shared/background_image_widget.dart';
 import 'package:kroenchen_app/features/shared/my_individual_button.dart';
-import 'package:kroenchen_app/features/SignUp/widgets/signup_loading_bar.dart';
-import 'package:kroenchen_app/features/shared/textfield_with_border.dart';
+import 'package:kroenchen_app/features/sign_up/widgets/signup_loading_bar.dart';
 
-class RegisterScreenStart extends StatelessWidget {
-  const RegisterScreenStart({super.key});
+class RegisterScreenFinish extends StatelessWidget {
+  const RegisterScreenFinish({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,29 +32,39 @@ class RegisterScreenStart extends StatelessWidget {
                     ),
                   ),
                   const SignUpLoadingBar(
-                    widthBoxOne: 75,
-                    widthBoxTwo: 300,
+                    widthBoxOne: 370,
+                    widthBoxTwo: 0,
                   ),
                   const SizedBox(
                     height: 48,
                   ),
+                  const Image(image: AssetImage("assets/images/k_logo.png")),
+                  const Expanded(
+                    flex: 1,
+                    child: SizedBox(),
+                  ),
+                  const Text(
+                    "Herzlich Willkommen,",
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 28),
+                  ),
                   const Padding(
-                    padding: EdgeInsets.only(bottom: 48),
-                    child: Text(
-                      "Wie möchtest du genannt werden ?",
-                      style: TextStyle(),
+                    padding: EdgeInsets.all(16.0),
+                    child: Image(
+                      image: AssetImage("assets/images/k_crown.png"),
                     ),
                   ),
-                  const TextFieldBox(
-                    text: 'Name',
+                  const Text(
+                    "MusterNutzer",
+                    style: TextStyle(),
                   ),
                   const Expanded(
+                    flex: 3,
                     child: SizedBox(),
                   ),
                   MyIndividualButton(
-                      newText: "Weiter",
-                      nextSite: () =>
-                          Navigator.pushNamed(context, "/registerscreentwo"),
+                      newText: "Zur Homepage",
+                      nextSite: () => Navigator.pushNamed(
+                          context, "/bottomnavigationbarmain"),
                       icon: null),
                 ],
               ),

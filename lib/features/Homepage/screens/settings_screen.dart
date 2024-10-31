@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:kroenchen_app/features/Homepage/widgets/profil_account_picture.dart';
+import 'package:kroenchen_app/features/homepage/widgets/profil_account_picture.dart';
 import 'package:kroenchen_app/features/shared/background_image_widget.dart';
 import 'package:kroenchen_app/features/shared/my_individual_button.dart';
 
