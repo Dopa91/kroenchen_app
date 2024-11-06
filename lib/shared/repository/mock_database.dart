@@ -10,20 +10,31 @@ class MockDatabase implements DatabaseRepository {
 
   @override
   Future<void> createAppointment(Appointment appointment) async {
-    Appointment newAppointment = Appointment(date: "date", name: "name");
-    appointmentData.add(newAppointment);
+    await Future.delayed(Duration(seconds: 2), () {
+      Appointment newAppointment = Appointment(date: "date", name: "name");
+      appointmentData.add(newAppointment);
+    });
   }
 
   @override
   Future<void> createDiaryEntry(diaryEntry) async {
-    DiaryEntry newEntry = diaryEntry;
-    diaryData.add(newEntry);
+    await Future.delayed(Duration(seconds: 2), () {
+      DiaryEntry newEntry = diaryEntry;
+      diaryData.add(newEntry);
+    });
   }
+
+  // @override
+  // Future<void> createUser(User user) async {
+  //   await Future.delayed(Duration(seconds: 2));
+  //   User newLoginUser = User("loginName", "password");
+  //   userData.add(newLoginUser);
+  // }
 
   @override
   Future<void> createUser(User user) async {
-    User newLoginUser = User("loginName", "password");
-    userData.add(newLoginUser);
+    await Future.delayed(Duration(seconds: 2));
+    userData.add(User("loginName", "password"));
   }
 
   @override
