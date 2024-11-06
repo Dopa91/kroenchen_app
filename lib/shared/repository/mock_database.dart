@@ -9,48 +9,48 @@ class MockDatabase implements DatabaseRepository {
   List<Appointment> appointmentData = [];
 
   @override
-  void createAppointment(Appointment appointment) {
+  Future<void> createAppointment(Appointment appointment) async {
     Appointment newAppointment = Appointment(date: "date", name: "name");
     appointmentData.add(newAppointment);
   }
 
   @override
-  void createDiaryEntry(diaryEntry) {
+  Future<void> createDiaryEntry(diaryEntry) async {
     DiaryEntry newEntry = diaryEntry;
     diaryData.add(newEntry);
   }
 
   @override
-  void createUser(User user) {
+  Future<void> createUser(User user) async {
     User newLoginUser = User("loginName", "password");
     userData.add(newLoginUser);
   }
 
   @override
-  void deleteAppointment(Appointment appointment) {}
+  Future<void> deleteAppointment(Appointment appointment) async {}
 
   @override
-  void deleteDiaryEntry(DiaryEntry diaryEntry) {}
+  Future<void> deleteDiaryEntry(DiaryEntry diaryEntry) async {}
 
   @override
-  void deleteUser(User user) {}
+  Future<void> deleteUser(User user) async {}
 
   @override
-  void editAppointment(Appointment appointment) {}
+  Future<void> editAppointment(Appointment appointment) async {}
 
   @override
-  void editDiaryEntry(DiaryEntry diaryEntry) {}
+  Future<void> editDiaryEntry(DiaryEntry diaryEntry) async {}
 
   @override
-  void editUser(User user) {}
+  Future<void> editUser(User user) async {}
 
   @override
-  Appointment showAppointment(Appointment appointment) {
+  Future<Appointment> showAppointment(Appointment appointment) async {
     return appointment;
   }
 
   @override
-  DiaryEntry showDiaryEntry(DiaryEntry diaryEntry) {
+  Future<DiaryEntry> showDiaryEntry(DiaryEntry diaryEntry) async {
     return diaryEntry;
   }
 }

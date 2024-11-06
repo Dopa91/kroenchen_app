@@ -4,27 +4,27 @@ import 'package:kroenchen_app/shared/models/user.dart';
 
 abstract class DatabaseRepository {
 // Einen neuen Benutzer hinzufügen (createUser)
-  void createUser(User user);
+  Future<void> createUser(User user);
 // Bestehende Benutzerdaten bearbeiten ( editUser)
-  void editUser(User user);
+  Future<void> editUser(User user);
 // Benutzerdaten löschen (deleteUser)
-  void deleteUser(User user);
+  Future<void> deleteUser(User user);
 
 // Einen neuen Tagebucheintrag erstellen (createDiaryEntry)
-  void createDiaryEntry(DiaryEntry diaryEntry);
+  Future<void> createDiaryEntry(DiaryEntry diaryEntry);
 // Den Tagebucheintrag anzeigen lassen (showDiaryEntry)
-  DiaryEntry showDiaryEntry(DiaryEntry diaryEntry);
+  Future<DiaryEntry> showDiaryEntry(DiaryEntry diaryEntry);
 // Tagebucheintrag bearbeiten ( editDiaryEntry)
-  void editDiaryEntry(DiaryEntry diaryEntry);
+  Future<void> editDiaryEntry(DiaryEntry diaryEntry);
 // Tagebucheintrag löschen (deleteDiaryEntry)
-  void deleteDiaryEntry(DiaryEntry diaryEntry);
+  Future<void> deleteDiaryEntry(DiaryEntry diaryEntry);
 
 // Einen neuen Termineintrag erstellen (createAppointment)
-  void createAppointment(Appointment appointment);
+  Future<void> createAppointment(Appointment appointment);
 // Den erstellten Termin  anzeigen lassen (showAppointment)
-  Appointment showAppointment(Appointment appointment);
+  Future<Appointment> showAppointment(Appointment appointment);
 // Termine bearbeiten ( editAppointment)
-  void editAppointment(Appointment appointment);
+  Future<void> editAppointment(Appointment appointment);
 // Termin löschen (deleteAppointment)
-  void deleteAppointment(Appointment appointment);
+  Future<void> deleteAppointment(Appointment appointment);
 }
