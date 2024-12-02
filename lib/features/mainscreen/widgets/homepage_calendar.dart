@@ -8,10 +8,10 @@ class HomepageCalendar extends StatefulWidget {
   const HomepageCalendar({super.key});
 
   @override
-  _HomepageCalendarState createState() => _HomepageCalendarState();
+  HomepageCalendarState createState() => HomepageCalendarState();
 }
 
-class _HomepageCalendarState extends State<HomepageCalendar> {
+class HomepageCalendarState extends State<HomepageCalendar> {
   late final ValueNotifier<List<Event>> _selectedEvents;
   final ValueNotifier<DateTime> _focusedDay = ValueNotifier(DateTime.now());
   final Set<DateTime> _selectedDays = LinkedHashSet<DateTime>(
@@ -173,6 +173,7 @@ class _HomepageCalendarState extends State<HomepageCalendar> {
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                       child: ListTile(
+                        // ignore: avoid_print
                         onTap: () => print('${value[index]}'),
                         title: Text('${value[index]}'),
                       ),
@@ -197,7 +198,6 @@ class _CalendarHeader extends StatelessWidget {
   final bool clearButtonVisible;
 
   const _CalendarHeader({
-    super.key,
     required this.focusedDay,
     required this.onLeftArrowTap,
     required this.onRightArrowTap,
