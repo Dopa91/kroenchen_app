@@ -33,6 +33,7 @@ Mock-Datenbank: Zum Testen und Verwalten von Einträgen und Dokumenten.
 Klone das Repository:
 
 git clone https://github.com/dein-github-username/kroenchen-app.git
+
 Installiere die Abhängigkeiten:
 
 flutter pub get
