@@ -37,7 +37,7 @@ class DiaryEntryList extends StatelessWidget {
               child: ListTile(
                 title: Text(entry.content),
                 subtitle: Text(
-                  "Datum: ${formatDate(entry.date)}\nFieber: ${entry.hasFever ? 'Ja' : 'Nein'}\nBlut im Stuhl: ${entry.pain ? 'Ja' : 'Nein'}",
+                  "Datum: ${formatDate(entry.date)}\nFieber: ${entry.hasFever ? 'Ja' : 'Nein'}\nSchmerzen: ${entry.pain ? 'Ja' : 'Nein'}\nBlut im Stuhl: ${entry.blood ? 'Ja' : 'Nein'}",
                 ),
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
