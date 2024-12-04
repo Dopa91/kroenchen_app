@@ -58,13 +58,16 @@ class DiaryScreenState extends State<DiaryScreen> {
           child: Icon(Icons.add, color: brighterPurple),
         ),
         body: SafeArea(
-          child: DiaryEntryList(
-            entriesFuture: entriesFuture,
-            onEdit: (entry) => _openDiaryEntryDialog(diaryEntry: entry),
-            onDelete: (entry) async {
-              await databaseRepository.deleteDiaryEntry(entry);
-              _refreshEntries();
-            },
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: DiaryEntryList(
+              entriesFuture: entriesFuture,
+              onEdit: (entry) => _openDiaryEntryDialog(diaryEntry: entry),
+              onDelete: (entry) async {
+                await databaseRepository.deleteDiaryEntry(entry);
+                _refreshEntries();
+              },
+            ),
           ),
         ),
       ),
