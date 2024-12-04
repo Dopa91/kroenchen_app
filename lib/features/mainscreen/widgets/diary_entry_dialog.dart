@@ -19,6 +19,7 @@ class _DiaryEntryDialogState extends State<DiaryEntryDialog> {
   late TextEditingController controller;
   late bool hadFever;
   late bool pain;
+  late bool blood;
 
   @override
   void initState() {
@@ -27,6 +28,7 @@ class _DiaryEntryDialogState extends State<DiaryEntryDialog> {
         TextEditingController(text: widget.existingEntry?.content ?? "");
     hadFever = widget.existingEntry?.hasFever ?? false;
     pain = widget.existingEntry?.pain ?? false;
+    blood = widget.existingEntry?.blood ?? false;
   }
 
   @override
@@ -55,9 +57,14 @@ class _DiaryEntryDialogState extends State<DiaryEntryDialog> {
             onChanged: (value) => setState(() => hadFever = value ?? false),
           ),
           CheckboxListTile(
-            title: const Text("Blut im Stuhl?"),
+            title: const Text("Schmerzen?"),
             value: pain,
             onChanged: (value) => setState(() => pain = value ?? false),
+          ),
+          CheckboxListTile(
+            title: const Text("Blut im Stuhl?"),
+            value: blood,
+            onChanged: (value) => setState(() => blood = value ?? false),
           ),
         ],
       ),
@@ -73,6 +80,7 @@ class _DiaryEntryDialogState extends State<DiaryEntryDialog> {
               content: controller.text,
               hasFever: hadFever,
               pain: pain,
+              blood: blood,
             );
             widget.onSave(newEntry);
             Navigator.of(context).pop();
