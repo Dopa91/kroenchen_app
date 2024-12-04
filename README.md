@@ -32,7 +32,7 @@ Mock-Datenbank: Zum Testen und Verwalten von Einträgen und Dokumenten.
 # Installation 🚀
 Klone das Repository:
 
-git clone https://github.com/dein-github-username/kroenchen-app.git
+git clone https://github.com/Dopa91/kroenchen_app.git
 
 Installiere die Dependencies:
 
