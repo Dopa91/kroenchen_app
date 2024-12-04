@@ -1,9 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:kroenchen_app/config/colors.dart';
+import 'package:kroenchen_app/features/mainscreen/widgets/diary_entry_dialog.dart';
+import 'package:kroenchen_app/features/mainscreen/widgets/diary_entry_list.dart';
+import 'package:kroenchen_app/shared/models/diary.dart';
+import 'package:kroenchen_app/shared/repository/database_repository.dart';
+import 'package:kroenchen_app/shared/repository/mock_database.dart';
 import 'package:kroenchen_app/shared/widgets/background_image_widget.dart';
 
-class DiaryScreen extends StatelessWidget {
+class DiaryScreen extends StatefulWidget {
   const DiaryScreen({super.key});
+
+  @override
+  DiaryScreenState createState() => DiaryScreenState();
+}
+
+class DiaryScreenState extends State<DiaryScreen> {
+  final DatabaseRepository databaseRepository = MockDatabase();
+  late Future<List<DiaryEntry>> entriesFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    entriesFuture = databaseRepository.getDiaryEntries();
+  }
+
+  void _refreshEntries() {
+    setState(() {
+      entriesFuture = databaseRepository.getDiaryEntries();
+    });
+  }
+
+  void _openDiaryEntryDialog({DiaryEntry? existingEntry}) {
+    showDialog(
+      context: context,
+      builder: (context) => DiaryEntryDialog(
+        existingEntry: existingEntry,
+        onSave: (newEntry) async {
+          if (existingEntry == null) {
+            await databaseRepository.createDiaryEntry(newEntry);
+          } else {
+            await databaseRepository.editDiaryEntry(newEntry);
+          }
+          _refreshEntries();
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,47 +53,17 @@ class DiaryScreen extends StatelessWidget {
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
           backgroundColor: buttonBlue,
-          mini: true,
-          onPressed: () {
-            showModalBottomSheet(
-              context: context,
-              builder: (BuildContext context) {
-                return const SizedBox(
-                  height: 512,
-                  width: 256,
-                  child: Center(
-                    child: Text(
-                      "Placeholder",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
-                );
-              },
-            );
-          },
-          child: Icon(
-            Icons.add,
-            color: brighterPurple,
-          ),
+          onPressed: () => _openDiaryEntryDialog(),
+          child: Icon(Icons.add, color: brighterPurple),
         ),
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Container(
-              decoration: const BoxDecoration(),
-              child: const Column(
-                children: [
-                  Center(
-                    child: Column(
-                      children: [
-                        Text(
-                            "Hier kommt die Tagebuchfunktion rein, mit übersicht und eintrag erstellen"),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          child: DiaryEntryList(
+            entriesFuture: entriesFuture,
+            onEdit: (entry) => _openDiaryEntryDialog(existingEntry: entry),
+            onDelete: (entry) async {
+              await databaseRepository.deleteDiaryEntry(entry);
+              _refreshEntries();
+            },
           ),
         ),
       ),
