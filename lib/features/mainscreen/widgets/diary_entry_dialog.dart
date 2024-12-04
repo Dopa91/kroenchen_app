@@ -47,6 +47,7 @@ class _DiaryEntryDialogState extends State<DiaryEntryDialog> {
         mainAxisSize: MainAxisSize.min,
         children: [
           TextField(
+            maxLines: 4,
             controller: controller,
             decoration:
                 const InputDecoration(labelText: "Wie ging es dir heute?"),
