@@ -34,17 +34,17 @@ class MockDatabase implements DatabaseRepository {
     _diaryData.removeWhere((entry) => entry.date == diaryEntry.date);
   }
 
-  // Platzhalter-Methoden
+  @override
+  Future<DiaryEntry> showDiaryEntry(DiaryEntry diaryEntry) async {
+    return diaryEntry;
+  }
+
   @override
   Future<void> createUser(User user) async {}
   @override
   Future<void> editUser(User user) async {}
   @override
   Future<void> deleteUser(User user) async {}
-  @override
-  Future<DiaryEntry> showDiaryEntry(DiaryEntry diaryEntry) async {
-    return diaryEntry;
-  }
 
   @override
   Future<void> createAppointment(Appointment appointment) async {}
