@@ -20,7 +20,10 @@ class DiaryEntryList extends StatelessWidget {
       future: entriesFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+              child: CircularProgressIndicator(
+            strokeWidth: 16,
+          ));
         }
         if (snapshot.hasError) {
           return Center(child: Text("Fehler: ${snapshot.error}"));
@@ -34,24 +37,65 @@ class DiaryEntryList extends StatelessWidget {
           itemBuilder: (context, index) {
             final entry = entries[index];
             return Card(
-              child: ListTile(
-                title: Text(entry.content),
+              margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              child: ExpansionTile(
+                title: Text(
+                  "Datum: ${formatDate(entry.date)}",
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black),
+                ),
                 subtitle: Text(
-                  "Datum: ${formatDate(entry.date)}\nFieber: ${entry.hasFever ? 'Ja' : 'Nein'}\nSchmerzen: ${entry.pain ? 'Ja' : 'Nein'}\nBlut: ${entry.blood ? 'Ja' : 'Nein'}",
+                  entry.content.length > 28
+                      ? '${entry.content.substring(0, 28)}...'
+                      : entry.content,
+                  style: const TextStyle(color: Colors.black),
                 ),
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.edit),
-                      onPressed: () => onEdit(entry),
+                textColor: Colors.black, // Farbe des Textes, wenn ausgeklappt
+                collapsedTextColor: Colors.black,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Fieber: ${entry.hasFever ? 'Ja' : 'Nein'}",
+                          style: const TextStyle(
+                              fontSize: 16, color: Colors.black),
+                        ),
+                        Text(
+                          "Schmerzen: ${entry.pain ? 'Ja' : 'Nein'}",
+                          style: const TextStyle(
+                              fontSize: 16, color: Colors.black),
+                        ),
+                        Text(
+                          "Blut: ${entry.blood ? 'Ja' : 'Nein'}",
+                          style: const TextStyle(
+                              fontSize: 16, color: Colors.black),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          entry.content,
+                          style: const TextStyle(
+                              fontSize: 14, color: Colors.black),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.edit, color: Colors.blue),
+                              onPressed: () => onEdit(entry),
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.delete, color: Colors.red),
+                              onPressed: () => onDelete(entry),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () => onDelete(entry),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             );
           },
