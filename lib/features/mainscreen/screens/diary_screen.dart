@@ -31,13 +31,13 @@ class DiaryScreenState extends State<DiaryScreen> {
     });
   }
 
-  void _openDiaryEntryDialog({DiaryEntry? existingEntry}) {
+  void _openDiaryEntryDialog({DiaryEntry? diaryEntry}) {
     showDialog(
       context: context,
       builder: (context) => DiaryEntryDialog(
-        existingEntry: existingEntry,
+        existingEntry: diaryEntry,
         onSave: (newEntry) async {
-          if (existingEntry == null) {
+          if (diaryEntry == null) {
             await databaseRepository.createDiaryEntry(newEntry);
           } else {
             await databaseRepository.editDiaryEntry(newEntry);
@@ -60,7 +60,7 @@ class DiaryScreenState extends State<DiaryScreen> {
         body: SafeArea(
           child: DiaryEntryList(
             entriesFuture: entriesFuture,
-            onEdit: (entry) => _openDiaryEntryDialog(existingEntry: entry),
+            onEdit: (entry) => _openDiaryEntryDialog(diaryEntry: entry),
             onDelete: (entry) async {
               await databaseRepository.deleteDiaryEntry(entry);
               _refreshEntries();

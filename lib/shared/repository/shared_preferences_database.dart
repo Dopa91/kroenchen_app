@@ -20,7 +20,7 @@ class SharedPreferencesDatabase implements DatabaseRepository {
 
   @override
   Future<List<DiaryEntry>> getDiaryEntries() async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 1));
     final prefs = await SharedPreferences.getInstance();
     final jsonString = prefs.getString(diaryKey);
 
