@@ -63,7 +63,7 @@ class _DiaryEntryDialogState extends State<DiaryEntryDialog> {
             onChanged: (value) => setState(() => pain = value ?? false),
           ),
           CheckboxListTile(
-            title: const Text("Blut im Stuhl?"),
+            title: const Text("Blut?"),
             value: blood,
             onChanged: (value) => setState(() => blood = value ?? false),
           ),
