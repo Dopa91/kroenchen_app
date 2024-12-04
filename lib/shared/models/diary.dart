@@ -3,12 +3,14 @@ class DiaryEntry {
   String content;
   bool hasFever;
   bool pain;
+  bool blood;
 
   DiaryEntry({
     required this.date,
     required this.content,
     required this.hasFever,
     required this.pain,
+    required this.blood,
   });
 
   Map<String, dynamic> toJson() {
@@ -17,6 +19,7 @@ class DiaryEntry {
       'content': content,
       'hasFever': hasFever,
       'pain': pain,
+      'blood': blood,
     };
   }
 
@@ -26,6 +29,7 @@ class DiaryEntry {
       content: json['content'],
       hasFever: json['hasFever'],
       pain: json['pain'],
+        blood: json['blood'],
     );
   }
 }
