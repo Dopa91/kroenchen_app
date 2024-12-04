@@ -5,6 +5,7 @@ import 'package:kroenchen_app/features/mainscreen/widgets/diary_entry_list.dart'
 import 'package:kroenchen_app/shared/models/diary.dart';
 import 'package:kroenchen_app/shared/repository/database_repository.dart';
 import 'package:kroenchen_app/shared/repository/mock_database.dart';
+import 'package:kroenchen_app/shared/repository/shared_preferences_database.dart';
 import 'package:kroenchen_app/shared/widgets/background_image_widget.dart';
 
 class DiaryScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class DiaryScreen extends StatefulWidget {
 }
 
 class DiaryScreenState extends State<DiaryScreen> {
-  final DatabaseRepository databaseRepository = MockDatabase();
+  final DatabaseRepository databaseRepository = SharedPreferencesDatabase();
   late Future<List<DiaryEntry>> entriesFuture;
 
   @override
