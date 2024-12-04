@@ -1,5 +1,5 @@
 class DiaryEntry {
-  String date;
+  DateTime date;
   String content;
   bool hasFever;
   int painScale;
