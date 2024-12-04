@@ -26,11 +26,15 @@ class DiaryEntryList extends StatelessWidget {
           ));
         }
         if (snapshot.hasError) {
-          return Center(child: Text("Fehler: ${snapshot.error}"));
+          return Center(
+            child: Text("Fehler: ${snapshot.error}"),
+          );
         }
         final entries = snapshot.data;
         if (entries == null || entries.isEmpty) {
-          return const Center(child: Text("Keine Einträge verfügbar"));
+          return const Center(
+            child: Text("Keine Einträge verfügbar"),
+          );
         }
         return ListView.builder(
           itemCount: entries.length,
