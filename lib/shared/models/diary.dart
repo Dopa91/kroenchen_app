@@ -2,12 +2,12 @@ class DiaryEntry {
   DateTime date;
   String content;
   bool hasFever;
-  int painScale;
+  bool pain;
 
   DiaryEntry({
     required this.date,
     required this.content,
     required this.hasFever,
-    required this.painScale,
+    required this.pain,
   });
 }
