@@ -34,13 +34,9 @@ Klone das Repository:
 
 git clone https://github.com/dein-github-username/kroenchen-app.git
 
-Installiere die Abhängigkeiten:
+Installiere die Dependencies:
 
 flutter pub get
-
-Starte die App:
-
-flutter run
 
 Kontakt:
 Bei Fragen oder Feedback kannst du mich gerne kontaktieren:
