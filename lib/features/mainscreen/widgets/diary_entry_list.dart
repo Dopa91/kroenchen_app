@@ -20,10 +20,7 @@ class DiaryEntryList extends StatelessWidget {
       future: entriesFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-              child: CircularProgressIndicator(
-            strokeWidth: 16,
-          ));
+          return const Center(child: CircularProgressIndicator());
         }
         if (snapshot.hasError) {
           return Center(
