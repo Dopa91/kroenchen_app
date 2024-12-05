@@ -110,7 +110,70 @@ class DiaryEntryList extends StatelessWidget {
                                 Icons.delete,
                                 color: Colors.red,
                               ),
-                              onPressed: () => onDelete(entry),
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      title: const Text(' Löschen ?'),
+                                      content: const Text(
+                                        'Möchtest du diesen Eintrag wirklich löschen?',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      actions: [
+                                        TextButton(
+                                          child: const Text('Abbrechen'),
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                        ),
+                                        TextButton(
+                                          child: const Text('Löschen'),
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                            showDialog(
+                                              context: context,
+                                              builder: (context) {
+                                                return AlertDialog(
+                                                  title: const Text(
+                                                      ' Löschen Löschen ?'),
+                                                  content: const Text(
+                                                    'BiSt Du DiR WiRkLiCh SiChEr ?! o.O',
+                                                    style: TextStyle(
+                                                      color: Colors.black,
+                                                    ),
+                                                  ),
+                                                  actions: [
+                                                    TextButton(
+                                                      child: const Text(
+                                                          'Abbrechen'),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                    ),
+                                                    TextButton(
+                                                      child:
+                                                          const Text('Löschen'),
+                                                      onPressed: () {
+                                                        onDelete(entry);
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            );
+                                          },
+                                        )
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
                             ),
                           ],
                         ),
