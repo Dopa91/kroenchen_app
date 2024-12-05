@@ -29,7 +29,7 @@ class DiaryEntry {
       content: json['content'],
       hasFever: json['hasFever'],
       pain: json['pain'],
-        blood: json['blood'],
+      blood: json['blood'],
     );
   }
 }
