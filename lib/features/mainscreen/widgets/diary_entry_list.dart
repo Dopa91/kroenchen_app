@@ -38,20 +38,27 @@ class DiaryEntryList extends StatelessWidget {
           itemBuilder: (context, index) {
             final entry = entries[index];
             return Card(
-              margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              margin: const EdgeInsets.symmetric(
+                vertical: 8,
+                horizontal: 16,
+              ),
               child: ExpansionTile(
                 title: Text(
                   "Datum: ${formatDate(entry.date)}",
                   style: const TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.black),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
                 ),
                 subtitle: Text(
                   entry.content.length > 28
                       ? '${entry.content.substring(0, 28)}...'
                       : entry.content,
-                  style: const TextStyle(color: Colors.black),
+                  style: const TextStyle(
+                    color: Colors.black,
+                  ),
                 ),
-                textColor: Colors.black, // Farbe des Textes, wenn ausgeklappt
+                textColor: Colors.black,
                 collapsedTextColor: Colors.black,
                 children: [
                   Padding(
@@ -62,33 +69,47 @@ class DiaryEntryList extends StatelessWidget {
                         Text(
                           "Fieber: ${entry.hasFever ? 'Ja' : 'Nein'}",
                           style: const TextStyle(
-                              fontSize: 16, color: Colors.black),
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
                         ),
                         Text(
                           "Schmerzen: ${entry.pain ? 'Ja' : 'Nein'}",
                           style: const TextStyle(
-                              fontSize: 16, color: Colors.black),
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
                         ),
                         Text(
                           "Blut: ${entry.blood ? 'Ja' : 'Nein'}",
                           style: const TextStyle(
-                              fontSize: 16, color: Colors.black),
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
                         ),
                         const SizedBox(height: 8),
                         Text(
                           entry.content,
                           style: const TextStyle(
-                              fontSize: 14, color: Colors.black),
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             IconButton(
-                              icon: const Icon(Icons.edit, color: Colors.blue),
+                              icon: const Icon(
+                                Icons.edit,
+                                color: Colors.blue,
+                              ),
                               onPressed: () => onEdit(entry),
                             ),
                             IconButton(
-                              icon: const Icon(Icons.delete, color: Colors.red),
+                              icon: const Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                              ),
                               onPressed: () => onDelete(entry),
                             ),
                           ],
