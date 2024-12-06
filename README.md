@@ -2,7 +2,7 @@
 
 Eine Unterstützung für Menschen mit chronischen Darmerkrankungen
 
-- Über das Projekt
+# Über das Projekt
 Die Krönchen App ist eine speziell entwickelte mobile Anwendung, die Menschen mit chronisch-entzündlichen Darmerkrankungen wie Morbus Crohn oder Colitis ulcerosa unterstützt. Die App bietet eine zentrale Plattform, um wichtige medizinische Informationen, Tagebucheinträge und Dokumente zu verwalten. Ziel ist es, Betroffenen den Alltag zu erleichtern und sie dabei zu unterstützen, ihre Gesundheit besser im Blick zu behalten.
 
 # Features 📱
