@@ -6,8 +6,9 @@ import 'package:kroenchen_app/shared/models/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesDatabase implements DatabaseRepository {
-  static const String diaryKey = 'diary_entries';
+  static const String diaryData = 'diary_entries';
 
+// DiaryEntry
   @override
   Future<void> createDiaryEntry(DiaryEntry diaryEntry) async {
     final prefs = await SharedPreferences.getInstance();
@@ -15,14 +16,14 @@ class SharedPreferencesDatabase implements DatabaseRepository {
     currentEntries.add(diaryEntry);
 
     final jsonList = currentEntries.map((entry) => entry.toJson()).toList();
-    await prefs.setString(diaryKey, jsonEncode(jsonList));
+    await prefs.setString(diaryData, jsonEncode(jsonList));
   }
 
   @override
   Future<List<DiaryEntry>> getDiaryEntries() async {
     await Future.delayed(Duration(seconds: 1));
     final prefs = await SharedPreferences.getInstance();
-    final jsonString = prefs.getString(diaryKey);
+    final jsonString = prefs.getString(diaryData);
 
     if (jsonString == null) return [];
     final List<dynamic> jsonList = jsonDecode(jsonString);
@@ -41,7 +42,7 @@ class SharedPreferencesDatabase implements DatabaseRepository {
       currentEntries[index] = diaryEntry;
 
       final jsonList = currentEntries.map((entry) => entry.toJson()).toList();
-      await prefs.setString(diaryKey, jsonEncode(jsonList));
+      await prefs.setString(diaryData, jsonEncode(jsonList));
     }
   }
 
@@ -53,7 +54,7 @@ class SharedPreferencesDatabase implements DatabaseRepository {
     currentEntries.removeWhere((entry) => entry.date == diaryEntry.date);
 
     final jsonList = currentEntries.map((entry) => entry.toJson()).toList();
-    await prefs.setString(diaryKey, jsonEncode(jsonList));
+    await prefs.setString(diaryData, jsonEncode(jsonList));
   }
 
   @override
@@ -62,6 +63,7 @@ class SharedPreferencesDatabase implements DatabaseRepository {
     return entries.firstWhere((entry) => entry.date == diaryEntry.date);
   }
 
+// User
   @override
   Future<void> createUser(User user) async {}
   @override
@@ -69,6 +71,7 @@ class SharedPreferencesDatabase implements DatabaseRepository {
   @override
   Future<void> deleteUser(User user) async {}
 
+// Appointment
   @override
   Future<void> createAppointment(Appointment appointment) async {}
   @override
