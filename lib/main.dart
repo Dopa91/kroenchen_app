@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kroenchen_app/config/themes.dart';
 import 'package:kroenchen_app/features/mainscreen/screens/bottom_navigation_bar_main.dart';
@@ -7,8 +8,13 @@ import 'package:kroenchen_app/features/sign_up/screens/register_screen_finish.da
 import 'package:kroenchen_app/features/sign_up/screens/register_screen_three.dart';
 import 'package:kroenchen_app/features/sign_up/screens/register_screen_two.dart';
 import 'package:kroenchen_app/features/welcome_screen/screens/welcome_screen.dart';
+import 'package:kroenchen_app/firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MainApp());
 }
 
