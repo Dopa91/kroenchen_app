@@ -12,23 +12,25 @@ import 'package:kroenchen_app/shared/repository/auth_repository.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
-void main() async {
+void main({bool useMock = false}) async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(MultiProvider(
-    providers: [
-      Provider<DatabaseRepository>(
-        create: (_) => SharedPreferencesDatabase(),
-      ),
-      Provider<AuthRepository>(
-        create: (_) => FirebaseAuthRepository(),
-      )
-    ],
-    child: const MainApp(),
-  ));
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<DatabaseRepository>(
+          create: (_) => SharedPreferencesDatabase(),
+        ),
+        Provider<AuthRepository>(
+          create: (_) => FirebaseAuthRepository(),
+        )
+      ],
+      child: const MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatefulWidget {
