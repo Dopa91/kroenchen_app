@@ -9,13 +9,21 @@ import 'package:kroenchen_app/features/sign_up/screens/register_screen_three.dar
 import 'package:kroenchen_app/features/sign_up/screens/register_screen_two.dart';
 import 'package:kroenchen_app/features/welcome_screen/screens/welcome_screen.dart';
 import 'package:kroenchen_app/firebase_options.dart';
+import 'package:kroenchen_app/shared/repository/database_repository.dart';
+// import 'package:kroenchen_app/shared/repository/mock_database.dart';
+import 'package:kroenchen_app/shared/repository/shared_preferences_database.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MainApp());
+  runApp(MultiProvider(providers: [
+    Provider<DatabaseRepository>(
+      create: (_) => SharedPreferencesDatabase(),
+    )
+  ], child: const MainApp()));
 }
 
 class MainApp extends StatefulWidget {
