@@ -2,12 +2,51 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:kroenchen_app/features/login/widgets/sign_in_divider.dart';
 import 'package:kroenchen_app/features/login/widgets/sign_up_icon_button.dart';
+import 'package:kroenchen_app/shared/repository/auth_repository.dart';
 import 'package:kroenchen_app/shared/widgets/background_image_widget.dart';
 import 'package:kroenchen_app/shared/widgets/my_individual_button.dart';
 import 'package:kroenchen_app/shared/widgets/textfield_with_border.dart';
+import 'package:provider/provider.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  Future<void> _login() async {
+    final authRepo = Provider.of<AuthRepository>(context, listen: false);
+    try {
+      await authRepo.signInWithEmailAndPassword(
+        emailController.text.trim(),
+        passwordController.text.trim(),
+      );
+      Navigator.pushNamed(context, "/bottomnavigationbarmain");
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Login fehlgeschlagen")),
+      );
+    }
+  }
+
+  Future<void> _loginWithGoogle() async {
+    final authRepo = Provider.of<AuthRepository>(context, listen: false);
+    try {
+      await authRepo.signInWithGoogle();
+      Navigator.pushNamed(context, "/bottomnavigationbarmain");
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Google Login fehlgeschlagen"),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,22 +86,24 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const TextFieldBox(
+              TextFieldBox(
                 text: 'Email',
+                controller: emailController,
               ),
-              const TextFieldBox(
+              TextFieldBox(
                 text: 'Password',
+                controller: passwordController,
+                obscureText: true,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               MyIndividualButton(
                 newText: "Login",
-                nextSite: () =>
-                    Navigator.pushNamed(context, "/bottomnavigationbarmain"),
+                nextSite: _login,
                 icon: Ionicons.log_in_outline,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               MyIndividualButton(
@@ -70,30 +111,30 @@ class LoginScreen extends StatelessWidget {
                 nextSite: () =>
                     Navigator.pushNamed(context, "/registerscreenstart"),
                 icon: null,
-                // icon: Ionicons.people_circle_outline,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              SignInDivider(),
-              SizedBox(
+              const SignInDivider(),
+              const SizedBox(
                 height: 16,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SignUpIconButton(
+                  const SignUpIconButton(
                     icon: Ionicons.logo_apple,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
                   SignUpIconButton(
                     icon: Ionicons.logo_google,
+                    onPressed: _loginWithGoogle,
                   ),
                 ],
               ),
-              Expanded(
+              const Expanded(
                 flex: 1,
                 child: SizedBox(),
               ),
