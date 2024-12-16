@@ -6,9 +6,11 @@ class SignUpIconButton extends StatelessWidget {
   const SignUpIconButton({
     super.key,
     required this.icon,
+    this.onPressed,
   });
 
   final IoniconsData icon;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class SignUpIconButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(36),
       ),
       child: IconButton(
-        onPressed: null,
+        onPressed: onPressed,
         icon: Icon(
           icon,
           size: 36,
