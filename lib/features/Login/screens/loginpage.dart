@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:kroenchen_app/features/login/widgets/sign_in_divider.dart';
@@ -19,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  Future<void> _login() async {
+  Future<void> login() async {
     final authRepo = Provider.of<AuthRepository>(context, listen: false);
     try {
       await authRepo.signInWithEmailAndPassword(
@@ -29,22 +31,25 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.pushNamed(context, "/bottomnavigationbarmain");
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Login fehlgeschlagen")),
+        SnackBar(content: Text("Login fehlgeschlagen: ${e.toString()}")),
       );
+
+      log("Fehler beim Login: $e");
     }
   }
 
-  Future<void> _loginWithGoogle() async {
+  Future<void> loginWithGoogle() async {
     final authRepo = Provider.of<AuthRepository>(context, listen: false);
     try {
       await authRepo.signInWithGoogle();
       Navigator.pushNamed(context, "/bottomnavigationbarmain");
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Google Login fehlgeschlagen"),
+        SnackBar(
+          content: Text("Google Login fehlgeschlagen: ${e.toString()}"),
         ),
       );
+      log("Fehler beim Google-Login: $e");
     }
   }
 
@@ -69,21 +74,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Image.asset(
-                        "assets/images/k_logo.png",
-                      ),
+                      Image.asset("assets/images/k_logo.png"),
                     ],
                   ),
                 ),
               ),
               const Row(
                 children: [
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    "Login \nMelde dich jetzt an",
-                  ),
+                  SizedBox(width: 8),
+                  Text("Login \nMelde dich jetzt an"),
                 ],
               ),
               TextFieldBox(
@@ -95,49 +94,34 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: passwordController,
                 obscureText: true,
               ),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
               MyIndividualButton(
                 newText: "Login",
-                nextSite: _login,
+                nextSite: login,
                 icon: Ionicons.log_in_outline,
               ),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
               MyIndividualButton(
                 newText: "Registrieren",
                 nextSite: () =>
                     Navigator.pushNamed(context, "/registerscreenstart"),
                 icon: null,
               ),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
               const SignInDivider(),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SignUpIconButton(
-                    icon: Ionicons.logo_apple,
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
+                  const SignUpIconButton(icon: Ionicons.logo_apple),
+                  const SizedBox(width: 8),
                   SignUpIconButton(
                     icon: Ionicons.logo_google,
-                    onPressed: _loginWithGoogle,
+                    onPressed: loginWithGoogle,
                   ),
                 ],
               ),
-              const Expanded(
-                flex: 1,
-                child: SizedBox(),
-              ),
+              const Expanded(flex: 1, child: SizedBox()),
             ],
           ),
         ),

@@ -48,7 +48,6 @@ class _MainAppState extends State<MainApp> {
     final authRepo = Provider.of<AuthRepository>(context, listen: false);
 
     return MaterialApp(
-      // themeMode: ThemeMode.system,
       themeMode: isSwitched ? ThemeMode.light : ThemeMode.dark,
       theme: lightTheme,
       darkTheme: darkTheme,
@@ -70,13 +69,19 @@ class _MainAppState extends State<MainApp> {
               );
             }
           }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const Center(child: CircularProgressIndicator());
         },
       ),
       routes: {
         '/loginscreen': (context) => const LoginScreen(),
+        '/bottomnavigationbarmain': (context) => BottomNavigationBarMain(
+              isSwitched: isSwitched,
+              onChanged: (bool newValue) {
+                setState(() {
+                  isSwitched = newValue;
+                });
+              },
+            ),
       },
     );
   }
