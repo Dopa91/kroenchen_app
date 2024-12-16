@@ -13,7 +13,7 @@ import 'package:kroenchen_app/shared/repository/auth_repository.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
-void main({bool useMock = true}) async {
+void main({bool useMock = false}) async {
   WidgetsFlutterBinding.ensureInitialized();
   if (!useMock) {
     await Firebase.initializeApp(
