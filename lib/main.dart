@@ -6,17 +6,20 @@ import 'package:kroenchen_app/features/login/screens/loginpage.dart';
 // import 'package:kroenchen_app/features/welcome_screen/screens/welcome_screen.dart';
 import 'package:kroenchen_app/features/mainscreen/screens/bottom_navigation_bar_main.dart';
 import 'package:kroenchen_app/shared/repository/database_repository.dart';
+import 'package:kroenchen_app/shared/repository/mock_auth_repository.dart';
 import 'package:kroenchen_app/shared/repository/shared_preferences_database.dart';
 import 'package:kroenchen_app/shared/repository/firebase_auth_repository.dart';
 import 'package:kroenchen_app/shared/repository/auth_repository.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
-void main({bool useMock = false}) async {
+void main({bool useMock = true}) async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  if (!useMock) {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  }
 
   runApp(
     MultiProvider(
@@ -25,8 +28,9 @@ void main({bool useMock = false}) async {
           create: (_) => SharedPreferencesDatabase(),
         ),
         Provider<AuthRepository>(
-          create: (_) => FirebaseAuthRepository(),
-        )
+          create: (_) =>
+              useMock ? MockAuthRepository() : FirebaseAuthRepository(),
+        ),
       ],
       child: const MainApp(),
     ),

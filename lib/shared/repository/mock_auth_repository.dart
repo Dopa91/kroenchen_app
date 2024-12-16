@@ -4,10 +4,13 @@ import 'package:kroenchen_app/shared/repository/auth_repository.dart';
 
 class MockAuthRepository implements AuthRepository {
   app_models.AppUser? actualUser;
-  final controller = StreamController<app_models.AppUser?>.broadcast();
+  final controller = StreamController<app_models.AppUser?>();
 
   MockAuthRepository() {
-    controller.add(actualUser);
+    actualUser = null;
+    controller.onListen = () {
+      controller.add(actualUser);
+    };
   }
 
   @override
@@ -27,7 +30,7 @@ class MockAuthRepository implements AuthRepository {
   @override
   Future<app_models.AppUser?> createUserWithEmailAndPassword(
       String email, String password) async {
-    actualUser = app_models.AppUser(userId: 'bobermock', email: email);
+    actualUser = app_models.AppUser(userId: 'bober', email: email);
     controller.add(actualUser);
     return actualUser;
   }
@@ -40,8 +43,7 @@ class MockAuthRepository implements AuthRepository {
 
   @override
   Future<app_models.AppUser?> signInWithGoogle() async {
-    actualUser =
-        app_models.AppUser(userId: 'bobrtGoogle', email: 'boberMock@bober.com');
+    actualUser = app_models.AppUser(userId: 'bober', email: 'bober@bober.com');
     controller.add(actualUser);
     return actualUser;
   }
