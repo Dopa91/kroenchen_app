@@ -1,15 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+// import 'package:kroenchen_app/config/colors.dart';
 import 'package:kroenchen_app/features/mainscreen/widgets/profil_account_picture.dart';
 import 'package:kroenchen_app/shared/widgets/background_image_widget.dart';
 import 'package:kroenchen_app/shared/widgets/my_individual_button.dart';
+import 'package:kroenchen_app/shared/repository/auth_repository.dart';
+import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen(
-      {super.key, required this.isSwitched, required this.onChanged});
+  const SettingsScreen({
+    super.key,
+    required this.isSwitched,
+    required this.onChanged,
+  });
 
   final bool isSwitched;
   final void Function(bool) onChanged;
+
+  Future<void> logout(BuildContext context) async {
+    final authRepo = Provider.of<AuthRepository>(context, listen: false);
+    await authRepo.signOut();
+  }
+
+  Future<void> showLogoutAlertDialog(BuildContext context) async {
+    final logoutState = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Ausloggen'),
+        content: Text(
+          'Möchtest du dich wirklich ausloggen?',
+          style: TextStyle(color: Colors.black54),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Abbrechen'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text('Ja, ausloggen'),
+          ),
+        ],
+      ),
+    );
+
+    if (logoutState == true) {
+      await logout(context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,18 +94,13 @@ class SettingsScreen extends StatelessWidget {
                             Navigator.pushNamed(context, "/placeholder"),
                         icon: Ionicons.pencil,
                       ),
-                      const SizedBox(
-                        height: 16,
-                      ),
+                      const SizedBox(height: 16),
                       MyIndividualButton(
                         newText: "Logout",
-                        nextSite: () =>
-                            Navigator.pushNamed(context, "/loginscreen"),
+                        nextSite: () => showLogoutAlertDialog(context),
                         icon: Ionicons.log_out_outline,
                       ),
-                      const SizedBox(
-                        height: 16,
-                      ),
+                      const SizedBox(height: 16),
                       const MyIndividualButton(
                         newText: "Konto Löschen",
                         nextSite: null,
