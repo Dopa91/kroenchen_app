@@ -40,11 +40,11 @@ class MockDatabase implements DatabaseRepository {
   }
 
   @override
-  Future<void> createUser(User user) async {}
+  Future<void> createUser(AppUser user) async {}
   @override
-  Future<void> editUser(User user) async {}
+  Future<void> editUser(AppUser user) async {}
   @override
-  Future<void> deleteUser(User user) async {}
+  Future<void> deleteUser(AppUser user) async {}
 
   @override
   Future<void> createAppointment(Appointment appointment) async {}

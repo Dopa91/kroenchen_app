@@ -1,9 +1,9 @@
-class User {
-  String loginName;
-  String password;
+class AppUser {
+  final String userId;
+  final String? email;
 
-  User(
-    this.loginName,
-    this.password,
-  );
+  AppUser({
+    required this.userId,
+    this.email,
+  });
 }

@@ -3,9 +3,9 @@ import 'package:kroenchen_app/shared/models/diary.dart';
 import 'package:kroenchen_app/shared/models/user.dart';
 
 abstract class DatabaseRepository {
-  Future<void> createUser(User user);
-  Future<void> editUser(User user);
-  Future<void> deleteUser(User user);
+  Future<void> createUser(AppUser user);
+  Future<void> editUser(AppUser user);
+  Future<void> deleteUser(AppUser user);
 
   Future<void> createDiaryEntry(DiaryEntry diaryEntry);
   Future<DiaryEntry> showDiaryEntry(DiaryEntry diaryEntry);
