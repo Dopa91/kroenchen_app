@@ -5,6 +5,9 @@ import 'package:kroenchen_app/features/login/screens/loginpage.dart';
 // import 'package:kroenchen_app/features/welcome_screen/screens/welcome_screen.dart';
 import 'package:kroenchen_app/features/mainscreen/screens/bottom_navigation_bar_main.dart';
 import 'package:kroenchen_app/features/sign_up/screens/register_screen.dart';
+import 'package:kroenchen_app/features/sign_up/screens/register_screen_finish.dart';
+import 'package:kroenchen_app/features/sign_up/screens/register_screen_three.dart';
+import 'package:kroenchen_app/features/sign_up/screens/register_screen_two.dart';
 import 'package:kroenchen_app/shared/repository/database_repository.dart';
 import 'package:kroenchen_app/shared/repository/mock_auth_repository.dart';
 import 'package:kroenchen_app/shared/repository/shared_preferences_database.dart';
@@ -79,6 +82,9 @@ class _MainAppState extends State<MainApp> {
       routes: {
         '/loginscreen': (context) => const LoginScreen(),
         '/registerscreenstart': (context) => RegisterScreenStart(),
+        '/registerscreentwo': (context) => RegisterScreenTwo(),
+        '/registerscreenthree': (context) => RegisterScreenThree(),
+        '/registerscreenfinish': (context) => RegisterScreenFinish(),
         '/bottomnavigationbarmain': (context) => BottomNavigationBarMain(
               isSwitched: isSwitched,
               onChanged: (bool newValue) {
