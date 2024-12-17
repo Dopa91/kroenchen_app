@@ -20,6 +20,9 @@ class SettingsScreen extends StatelessWidget {
   Future<void> logout(BuildContext context) async {
     final authRepo = Provider.of<AuthRepository>(context, listen: false);
     await authRepo.signOut();
+
+    Navigator.pushNamedAndRemoveUntil(
+        context, "/loginscreen", (route) => false);
   }
 
   Future<void> showLogoutAlertDialog(BuildContext context) async {
@@ -27,7 +30,7 @@ class SettingsScreen extends StatelessWidget {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Ausloggen'),
-        content: Text(
+        content: const Text(
           'Möchtest du dich wirklich ausloggen?',
           style: TextStyle(color: Colors.black54),
         ),
