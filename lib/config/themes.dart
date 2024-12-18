@@ -28,6 +28,9 @@ final ThemeData darkTheme = ThemeData(
   ),
   scaffoldBackgroundColor: Colors.transparent,
   // scaffoldBackgroundColor: darkerBackgroundColorPurple,
+  cardTheme: CardTheme(
+    color: Colors.grey,
+  ),
 );
 
 final ThemeData lightTheme = ThemeData(
