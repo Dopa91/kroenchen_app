@@ -105,8 +105,9 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 16),
               MyIndividualButton(
                 newText: "Registrieren",
-                nextSite: () =>
-                    Navigator.pushNamed(context, "/registerscreenstart"),
+                nextSite: null,
+                // () =>
+                //     Navigator.pushNamed(context, "/registerscreenstart"),
                 icon: null,
               ),
               const SizedBox(height: 16),
