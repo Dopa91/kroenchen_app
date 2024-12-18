@@ -62,10 +62,10 @@ class SettingsScreen extends StatelessWidget {
           automaticallyImplyLeading: false,
           forceMaterialTransparency: true,
           actions: [
-            // Switch(
-            //   value: isSwitched,
-            //   onChanged: onChanged,
-            // ),
+            Switch(
+              value: isSwitched,
+              onChanged: onChanged,
+            ),
           ],
         ),
         body: SafeArea(
