@@ -1,3 +1,4 @@
+import 'package:kroenchen_app/shared/models/document.dart';
 import 'package:kroenchen_app/shared/repository/database_repository.dart';
 import 'package:kroenchen_app/shared/models/appointment.dart';
 import 'package:kroenchen_app/shared/models/diary.dart';
@@ -57,4 +58,34 @@ class MockDatabase implements DatabaseRepository {
   Future<void> editAppointment(Appointment appointment) async {}
   @override
   Future<void> deleteAppointment(Appointment appointment) async {}
+
+  @override
+  Future<void> addDocument(Document document) {
+    // TODO: implement addDocument
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> clearAllDocuments() {
+    // TODO: implement clearAllDocuments
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> deleteDocument(String documentId) {
+    // TODO: implement deleteDocument
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> editDocument(Document updatedDocument) {
+    // TODO: implement editDocument
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<List<Document>> getDocuments() {
+    // TODO: implement getDocuments
+    throw UnimplementedError();
+  }
 }
