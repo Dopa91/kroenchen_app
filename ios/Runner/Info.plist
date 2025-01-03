@@ -56,5 +56,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<!-- Kamera- und Galerie-Berechtigungen -->
+	<key>NSCameraUsageDescription</key>
+	<string>Die Kamera wird benötigt, um Dokumente zu scannen.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Zugriff auf die Foto-Bibliothek wird benötigt, um Bilder auszuwählen.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Die App benötigt Berechtigungen, um Bilder in der Bibliothek zu speichern.</string>
 </dict>
 </plist>
