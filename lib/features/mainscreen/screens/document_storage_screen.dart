@@ -4,7 +4,6 @@ import 'package:kroenchen_app/config/colors.dart';
 import 'package:kroenchen_app/features/mainscreen/widgets/document_detail_screen.dart';
 import 'package:kroenchen_app/shared/models/document.dart';
 import 'package:kroenchen_app/shared/repository/database_repository.dart';
-import 'package:kroenchen_app/shared/repository/shared_preferences_database.dart';
 import 'package:kroenchen_app/shared/widgets/background_image_widget.dart';
 import 'package:provider/provider.dart';
 
