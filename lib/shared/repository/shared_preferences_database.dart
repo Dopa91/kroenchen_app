@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:kroenchen_app/shared/models/document.dart';
 import 'package:kroenchen_app/shared/repository/database_repository.dart';
 import 'package:kroenchen_app/shared/models/appointment.dart';
 import 'package:kroenchen_app/shared/models/diary.dart';
@@ -7,8 +8,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesDatabase implements DatabaseRepository {
   static const String diaryData = 'diary_entries';
+  static const String documentKey = 'documents';
 
-// DiaryEntry
+  // DiaryEntry
   @override
   Future<void> createDiaryEntry(DiaryEntry diaryEntry) async {
     final prefs = await SharedPreferences.getInstance();
@@ -63,7 +65,7 @@ class SharedPreferencesDatabase implements DatabaseRepository {
     return entries.firstWhere((entry) => entry.date == diaryEntry.date);
   }
 
-// User
+  // User
   @override
   Future<void> createUser(AppUser user) async {}
   @override
@@ -71,7 +73,7 @@ class SharedPreferencesDatabase implements DatabaseRepository {
   @override
   Future<void> deleteUser(AppUser user) async {}
 
-// Appointment
+  // Appointment
   @override
   Future<void> createAppointment(Appointment appointment) async {}
   @override
@@ -83,4 +85,56 @@ class SharedPreferencesDatabase implements DatabaseRepository {
   Future<void> editAppointment(Appointment appointment) async {}
   @override
   Future<void> deleteAppointment(Appointment appointment) async {}
+
+  // Document
+  @override
+  Future<void> addDocument(Document document) async {
+    final prefs = await SharedPreferences.getInstance();
+    final currentDocuments = await getDocuments();
+
+    currentDocuments.add(document);
+    final jsonList = currentDocuments.map((doc) => doc.toJson()).toList();
+    await prefs.setString(documentKey, jsonEncode(jsonList));
+  }
+
+  @override
+  Future<List<Document>> getDocuments() async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonString = prefs.getString(documentKey);
+    if (jsonString == null) return [];
+
+    final List<dynamic> jsonList = jsonDecode(jsonString);
+    return jsonList.map((doc) => Document.fromJson(doc)).toList();
+  }
+
+  @override
+  Future<void> deleteDocument(String documentId) async {
+    final prefs = await SharedPreferences.getInstance();
+    final currentDocuments = await getDocuments();
+
+    currentDocuments.removeWhere((doc) => doc.id == documentId);
+    final jsonList = currentDocuments.map((doc) => doc.toJson()).toList();
+    await prefs.setString(documentKey, jsonEncode(jsonList));
+  }
+
+  @override
+  Future<void> editDocument(Document updatedDocument) async {
+    final prefs = await SharedPreferences.getInstance();
+    final currentDocuments = await getDocuments();
+
+    final index =
+        currentDocuments.indexWhere((doc) => doc.id == updatedDocument.id);
+    if (index != -1) {
+      currentDocuments[index] = updatedDocument;
+
+      final jsonList = currentDocuments.map((doc) => doc.toJson()).toList();
+      await prefs.setString(documentKey, jsonEncode(jsonList));
+    }
+  }
+
+  @override
+  Future<void> clearAllDocuments() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(documentKey);
+  }
 }
