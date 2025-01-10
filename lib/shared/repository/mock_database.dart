@@ -1,12 +1,14 @@
-import 'package:kroenchen_app/shared/models/document.dart';
 import 'package:kroenchen_app/shared/repository/database_repository.dart';
 import 'package:kroenchen_app/shared/models/appointment.dart';
 import 'package:kroenchen_app/shared/models/diary.dart';
+import 'package:kroenchen_app/shared/models/document.dart';
 import 'package:kroenchen_app/shared/models/user.dart';
 
 class MockDatabase implements DatabaseRepository {
   final List<DiaryEntry> _diaryData = [];
+  final List<Document> _documentsData = [];
 
+  // Diary
   @override
   Future<void> createDiaryEntry(DiaryEntry diaryEntry) async {
     await Future.delayed(Duration(microseconds: 100));
@@ -15,7 +17,7 @@ class MockDatabase implements DatabaseRepository {
 
   @override
   Future<List<DiaryEntry>> getDiaryEntries() async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 1));
     return List.from(_diaryData);
   }
 
@@ -40,6 +42,7 @@ class MockDatabase implements DatabaseRepository {
     return diaryEntry;
   }
 
+  // User
   @override
   Future<void> createUser(AppUser user) async {}
   @override
@@ -47,6 +50,7 @@ class MockDatabase implements DatabaseRepository {
   @override
   Future<void> deleteUser(AppUser user) async {}
 
+  // Appointment
   @override
   Future<void> createAppointment(Appointment appointment) async {}
   @override
@@ -59,33 +63,38 @@ class MockDatabase implements DatabaseRepository {
   @override
   Future<void> deleteAppointment(Appointment appointment) async {}
 
+  // Document
   @override
-  Future<void> addDocument(Document document) {
-    // TODO: implement addDocument
-    throw UnimplementedError();
+  Future<void> addDocument(Document document) async {
+    await Future.delayed(Duration(microseconds: 100));
+    _documentsData.add(document);
   }
 
   @override
-  Future<void> clearAllDocuments() {
-    // TODO: implement clearAllDocuments
-    throw UnimplementedError();
+  Future<List<Document>> getDocuments() async {
+    await Future.delayed(Duration(milliseconds: 200));
+    return List.from(_documentsData);
   }
 
   @override
-  Future<void> deleteDocument(String documentId) {
-    // TODO: implement deleteDocument
-    throw UnimplementedError();
+  Future<void> editDocument(Document updatedDocument) async {
+    await Future.delayed(Duration(microseconds: 100));
+    final index =
+        _documentsData.indexWhere((doc) => doc.id == updatedDocument.id);
+    if (index != -1) {
+      _documentsData[index] = updatedDocument;
+    }
   }
 
   @override
-  Future<void> editDocument(Document updatedDocument) {
-    // TODO: implement editDocument
-    throw UnimplementedError();
+  Future<void> deleteDocument(String documentId) async {
+    await Future.delayed(Duration(milliseconds: 100));
+    _documentsData.removeWhere((doc) => doc.id == documentId);
   }
 
   @override
-  Future<List<Document>> getDocuments() {
-    // TODO: implement getDocuments
-    throw UnimplementedError();
+  Future<void> clearAllDocuments() async {
+    await Future.delayed(Duration(milliseconds: 100));
+    _documentsData.clear();
   }
 }
