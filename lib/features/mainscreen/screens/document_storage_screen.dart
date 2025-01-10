@@ -75,7 +75,7 @@ class _DocumentStorageScreenState extends State<DocumentStorageScreen> {
         addedDate: DateTime.now(),
       );
 
-      final db = Provider.of<SharedPreferencesDatabase>(context, listen: false);
+      final db = Provider.of<DatabaseRepository>(context, listen: false);
       await db.addDocument(newDocument);
 
       setState(() {
@@ -85,7 +85,7 @@ class _DocumentStorageScreenState extends State<DocumentStorageScreen> {
   }
 
   Future<void> _deleteDocument(String documentId) async {
-    final db = Provider.of<SharedPreferencesDatabase>(context, listen: false);
+    final db = Provider.of<DatabaseRepository>(context, listen: false);
     await db.deleteDocument(documentId);
 
     setState(() {
