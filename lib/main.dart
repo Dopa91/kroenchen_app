@@ -55,6 +55,7 @@ class _MainAppState extends State<MainApp> {
     final authRepo = Provider.of<AuthRepository>(context, listen: false);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       themeMode: isSwitched ? ThemeMode.light : ThemeMode.dark,
       theme: lightTheme,
       darkTheme: darkTheme,
@@ -80,7 +81,7 @@ class _MainAppState extends State<MainApp> {
         },
       ),
       routes: {
-        '/loginscreen': (context) => const LoginScreen(),
+        '/loginscreen': (context) => LoginScreen(),
         '/registerscreenstart': (context) => RegisterScreenStart(),
         '/registerscreentwo': (context) => RegisterScreenTwo(),
         '/registerscreenthree': (context) => RegisterScreenThree(),
