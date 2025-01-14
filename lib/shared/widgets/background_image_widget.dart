@@ -27,8 +27,8 @@ class _BackgroundImageWidgetState extends State<BackgroundImageWidget> {
           curve: Curves.easeInOut,
           decoration: BoxDecoration(
             gradient: isLight
-                ? backgroundColorPurpleGradient
-                : daerkerBackgroundColorPurpleGradient,
+                ? daerkerBackgroundColorPurpleGradient
+                : backgroundColorPurpleGradient,
           ),
           height: MediaQuery.sizeOf(context).height,
           width: MediaQuery.sizeOf(context).width,
