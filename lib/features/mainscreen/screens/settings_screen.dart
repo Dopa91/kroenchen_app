@@ -106,11 +106,12 @@ class SettingsScreen extends StatelessWidget {
                         icon: Ionicons.log_out_outline,
                       ),
                       const SizedBox(height: 16),
-                      const MyIndividualButton(
-                        newText: "Konto Löschen",
-                        nextSite: null,
-                        icon: Ionicons.trash_bin_outline,
-                      )
+                      // const MyIndividualButton(
+                      //   newText: "Konto Löschen",
+                      //   nextSite: null,
+                      //   icon: Ionicons.trash_bin_outline,
+                      // )
+                      // todo: imlemenmt function!!!
                     ],
                   ),
                 )
