@@ -31,6 +31,7 @@ class _DocumentDetailScreenState extends State<DocumentDetailScreen> {
     final pickedFile = await picker.pickImage(source: source);
 
     if (pickedFile != null) {
+      // ignore: use_build_context_synchronously
       final db = Provider.of<DatabaseRepository>(context, listen: false);
       document.filePaths.add(pickedFile.path);
       await db.editDocument(document);
@@ -66,6 +67,7 @@ class _DocumentDetailScreenState extends State<DocumentDetailScreen> {
     );
 
     if (shouldDelete == true) {
+      // ignore: use_build_context_synchronously
       final db = Provider.of<SharedPreferencesDatabase>(context, listen: false);
       document.filePaths.removeAt(index);
       await db.editDocument(document);

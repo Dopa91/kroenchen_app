@@ -74,6 +74,7 @@ class _DocumentStorageScreenState extends State<DocumentStorageScreen> {
         addedDate: DateTime.now(),
       );
 
+      // ignore: use_build_context_synchronously
       final db = Provider.of<DatabaseRepository>(context, listen: false);
       await db.addDocument(newDocument);
 
