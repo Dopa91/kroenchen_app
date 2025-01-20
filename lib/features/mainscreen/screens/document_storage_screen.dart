@@ -16,6 +16,7 @@ class DocumentStorageScreen extends StatefulWidget {
 
 class _DocumentStorageScreenState extends State<DocumentStorageScreen> {
   List<Document> documents = [];
+  bool isLoading = true;
 
   @override
   void initState() {
@@ -24,10 +25,16 @@ class _DocumentStorageScreenState extends State<DocumentStorageScreen> {
   }
 
   Future<void> _loadDocuments() async {
+    setState(() {
+      isLoading = true;
+    });
+
     final db = Provider.of<DatabaseRepository>(context, listen: false);
     final loadedDocs = await db.getDocuments();
+
     setState(() {
       documents = loadedDocs;
+      isLoading = false;
     });
   }
 
@@ -37,10 +44,7 @@ class _DocumentStorageScreenState extends State<DocumentStorageScreen> {
     final String? documentName = await showDialog<String>(
       context: context,
       builder: (context) => AlertDialog(
-        // backgroundColor: brighterPurple,
-        title: const Text(
-          "Neues Dokument erstellen",
-        ),
+        title: const Text("Neues Dokument erstellen"),
         content: TextField(
           controller: nameController,
           decoration: const InputDecoration(
@@ -51,16 +55,12 @@ class _DocumentStorageScreenState extends State<DocumentStorageScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(null),
-            child: const Text(
-              "Abbrechen",
-            ),
+            child: const Text("Abbrechen"),
           ),
           TextButton(
             onPressed: () =>
                 Navigator.of(context).pop(nameController.text.trim()),
-            child: const Text(
-              "Erstellen",
-            ),
+            child: const Text("Erstellen"),
           ),
         ],
       ),
@@ -74,7 +74,6 @@ class _DocumentStorageScreenState extends State<DocumentStorageScreen> {
         addedDate: DateTime.now(),
       );
 
-      // ignore: use_build_context_synchronously
       final db = Provider.of<DatabaseRepository>(context, listen: false);
       await db.addDocument(newDocument);
 
@@ -97,25 +96,16 @@ class _DocumentStorageScreenState extends State<DocumentStorageScreen> {
     final shouldDelete = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text(
-          "Ordner löschen?",
-        ),
-        content: const Text(
-          "Möchtest du dieses Dokument wirklich löschen?",
-          style: TextStyle(color: Colors.black),
-        ),
+        title: const Text("Ordner löschen?"),
+        content: const Text("Möchtest du dieses Dokument wirklich löschen?"),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text(
-              "Abbrechen",
-            ),
+            child: const Text("Abbrechen"),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text(
-              "Löschen",
-            ),
+            child: const Text("Löschen"),
           ),
         ],
       ),
@@ -130,89 +120,94 @@ class _DocumentStorageScreenState extends State<DocumentStorageScreen> {
   Widget build(BuildContext context) {
     return BackgroundImageWidget(
       child: Scaffold(
-        body: documents.isEmpty
+        body: isLoading
             ? const Center(
-                child: Text("Keine Dokumente gespeichert"),
+                child: CircularProgressIndicator(),
               )
-            : Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 8,
-                    mainAxisSpacing: 8,
-                  ),
-                  itemCount: documents.length,
-                  itemBuilder: (context, index) {
-                    final doc = documents[index];
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                DocumentDetailScreen(document: doc),
+            : documents.isEmpty
+                ? const Center(
+                    child: Text("Keine Dokumente gespeichert"),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 8,
+                        mainAxisSpacing: 8,
+                      ),
+                      itemCount: documents.length,
+                      itemBuilder: (context, index) {
+                        final doc = documents[index];
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    DocumentDetailScreen(document: doc),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: backgroundColorPurpleGradient,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: doc.filePaths.isNotEmpty
+                                        ? Image.file(
+                                            File(doc.filePaths.first),
+                                            fit: BoxFit.cover,
+                                            width: double.infinity,
+                                          )
+                                        : const Icon(Icons.insert_drive_file,
+                                            size: 50, color: Colors.white),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 8.0,
+                                      horizontal: 4.0,
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            doc.name,
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 14,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                        IconButton(
+                                          icon: const Icon(Icons.delete,
+                                              color: Colors.red),
+                                          onPressed: () =>
+                                              _showDeleteConfirmation(doc.id),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         );
                       },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: backgroundColorPurpleGradient,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: doc.filePaths.isNotEmpty
-                                    ? Image.file(
-                                        File(doc.filePaths.first),
-                                        fit: BoxFit.cover,
-                                        width: double.infinity,
-                                      )
-                                    : const Icon(Icons.insert_drive_file,
-                                        size: 50, color: Colors.white),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 8.0,
-                                  horizontal: 4.0,
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        doc.name,
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 1,
-                                      ),
-                                    ),
-                                    IconButton(
-                                      icon: const Icon(Icons.delete,
-                                          color: Colors.red),
-                                      onPressed: () =>
-                                          _showDeleteConfirmation(doc.id),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
+                    ),
+                  ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: buttonBlue,
           onPressed: _createNewDocument,

@@ -99,6 +99,7 @@ class SharedPreferencesDatabase implements DatabaseRepository {
 
   @override
   Future<List<Document>> getDocuments() async {
+    await Future.delayed(Duration(seconds: 1));
     final prefs = await SharedPreferences.getInstance();
     final jsonString = prefs.getString(documentKey);
     if (jsonString == null) return [];
