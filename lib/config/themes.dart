@@ -27,9 +27,20 @@ final ThemeData darkTheme = ThemeData(
     backgroundColor: darkerBrighterPurple,
   ),
   scaffoldBackgroundColor: Colors.transparent,
-  // scaffoldBackgroundColor: darkerBackgroundColorPurple,
   cardTheme: CardTheme(
     color: Colors.grey,
+  ),
+  dialogTheme: DialogTheme(
+    backgroundColor: darkerBackgroundColorPurple,
+    titleTextStyle: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      color: generalWhite,
+    ),
+    contentTextStyle: TextStyle(
+      fontSize: 16,
+      color: generalWhite,
+    ),
   ),
 );
 
@@ -53,10 +64,19 @@ final ThemeData lightTheme = ThemeData(
     ),
   ),
   iconTheme: IconThemeData(color: generalWhite),
-
   brightness: Brightness.light,
-  // primaryColor: backgroundColorPurple,
   navigationBarTheme: NavigationBarThemeData(backgroundColor: brighterPurple),
   scaffoldBackgroundColor: Colors.transparent,
-  // scaffoldBackgroundColor: backgroundColorPurple,
+  dialogTheme: DialogTheme(
+    backgroundColor: brighterPurple,
+    titleTextStyle: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      color: darkerBackgroundColorPurple,
+    ),
+    contentTextStyle: TextStyle(
+      fontSize: 16,
+      color: darkerBackgroundColorPurple,
+    ),
+  ),
 );
