@@ -28,4 +28,8 @@ abstract class DatabaseRepository {
   Future<void> editDocument(Document updatedDocument);
   Future<void> deleteDocument(String documentId);
   Future<void> clearAllDocuments();
+
+  // Profile Picture
+  Future<void> saveProfilePicture(String filePath);
+  Future<String?> getProfilePicture();
 }

@@ -7,6 +7,7 @@ import 'package:kroenchen_app/shared/models/user.dart';
 class MockDatabase implements DatabaseRepository {
   final List<DiaryEntry> _diaryData = [];
   final List<Document> _documentsData = [];
+  String? _profilePicturePath;
 
   // Diary
   @override
@@ -96,5 +97,18 @@ class MockDatabase implements DatabaseRepository {
   Future<void> clearAllDocuments() async {
     await Future.delayed(Duration(milliseconds: 100));
     _documentsData.clear();
+  }
+
+  // Settingsscrren
+  @override
+  Future<void> saveProfilePicture(String filePath) async {
+    await Future.delayed(Duration(milliseconds: 100));
+    _profilePicturePath = filePath;
+  }
+
+  @override
+  Future<String?> getProfilePicture() async {
+    await Future.delayed(Duration(milliseconds: 100));
+    return _profilePicturePath;
   }
 }

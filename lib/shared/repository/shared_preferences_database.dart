@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SharedPreferencesDatabase implements DatabaseRepository {
   static const String diaryData = 'diary_entries';
   static const String documentKey = 'documents';
+  static const String profilePictureKey = 'profile_picture';
 
   // DiaryEntry
   @override
@@ -137,5 +138,18 @@ class SharedPreferencesDatabase implements DatabaseRepository {
   Future<void> clearAllDocuments() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(documentKey);
+  }
+
+  //SettingsScreen
+  @override
+  Future<void> saveProfilePicture(String filePath) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(profilePictureKey, filePath);
+  }
+
+  @override
+  Future<String?> getProfilePicture() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(profilePictureKey);
   }
 }
