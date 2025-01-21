@@ -1,9 +1,10 @@
 // ignore_for_file: use_build_context_synchronously
-
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:ionicons/ionicons.dart';
 // import 'package:kroenchen_app/config/colors.dart';
 import 'package:kroenchen_app/features/mainscreen/widgets/profil_account_picture.dart';
+import 'package:kroenchen_app/shared/repository/database_repository.dart';
 import 'package:kroenchen_app/shared/widgets/background_image_widget.dart';
 import 'package:kroenchen_app/shared/widgets/my_individual_button.dart';
 import 'package:kroenchen_app/shared/repository/auth_repository.dart';
@@ -25,6 +26,20 @@ class SettingsScreen extends StatelessWidget {
 
     Navigator.pushNamedAndRemoveUntil(
         context, "/loginscreen", (route) => false);
+  }
+
+  Future<void> _chanageProfilPicture(BuildContext context) async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      final db = Provider.of<DatabaseRepository>(context, listen: false);
+      await db.saveProfilePicture(pickedFile.path);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Profilbild erfolgreich aktualisiert!")),
+      );
+    }
   }
 
   Future<void> showLogoutAlertDialog(BuildContext context) async {
@@ -94,11 +109,18 @@ class SettingsScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       MyIndividualButton(
-                        newText: "Edit Profil",
-                        nextSite: () =>
-                            Navigator.pushNamed(context, "/placeholder"),
-                        icon: Ionicons.pencil,
+                        newText: "Profilname ändern",
+                        nextSite: null,
+                        icon: Ionicons.people_outline,
                       ),
+                      const SizedBox(height: 16),
+
+                      MyIndividualButton(
+                        newText: "Profilbild ändern",
+                        nextSite: () => _chanageProfilPicture(context),
+                        icon: Ionicons.image_outline,
+                      ),
+
                       const SizedBox(height: 16),
                       MyIndividualButton(
                         newText: "Logout",
