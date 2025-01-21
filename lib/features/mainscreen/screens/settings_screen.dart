@@ -98,6 +98,15 @@ class SettingsScreen extends StatelessWidget {
                 const ProfilAccountPicture(
                   radius: 96,
                 ),
+                Text(
+                  "Schön dich zu sehen!,",
+                  style: TextStyle(color: Colors.black, fontSize: 24),
+                ),
+                Text("Mina",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold)),
                 const Expanded(
                   flex: 5,
                   child: SizedBox(
