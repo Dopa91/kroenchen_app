@@ -116,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // const SignUpIconButton(icon: Ionicons.logo_apple),
+                  const SignUpIconButton(icon: Ionicons.logo_apple),
                   const SizedBox(width: 8),
                   SignUpIconButton(
                     icon: Ionicons.logo_google,
