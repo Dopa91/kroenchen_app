@@ -68,7 +68,7 @@ final ThemeData lightTheme = ThemeData(
   navigationBarTheme: NavigationBarThemeData(backgroundColor: brighterPurple),
   scaffoldBackgroundColor: Colors.transparent,
   dialogTheme: DialogTheme(
-    backgroundColor: brighterPurple,
+    backgroundColor: generalWhite,
     titleTextStyle: TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.bold,
