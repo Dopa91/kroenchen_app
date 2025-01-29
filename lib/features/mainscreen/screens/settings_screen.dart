@@ -76,12 +76,12 @@ class SettingsScreen extends StatelessWidget {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           forceMaterialTransparency: true,
-          // actions: [
-          //   Switch(
-          //     value: isSwitched,
-          //     onChanged: onChanged,
-          //   ),
-          // ], // todo: Darkmode!!! fix colors.
+          actions: [
+            Switch(
+              value: isSwitched,
+              onChanged: onChanged,
+            ),
+          ], // todo: Darkmode!!! fix colors.
         ),
         body: SafeArea(
           child: Padding(
