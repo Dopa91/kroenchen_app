@@ -37,7 +37,7 @@ final ThemeData darkTheme = ThemeData(
     ),
   ),
   cardTheme: CardTheme(
-    color: darkerBrighterPurple,
+    color: generalWhite,
     shadowColor: Colors.black,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
