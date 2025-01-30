@@ -29,7 +29,7 @@ LinearGradient daerkerBackgroundColorPurpleGradient = LinearGradient(
   colors: [
     Color.fromARGB(255, 193, 130, 255),
     Color.fromARGB(255, 184, 124, 244),
-    Color.fromARGB(255, 137, 40, 235),
-    Color.fromARGB(255, 0, 68, 169),
+    Color.fromARGB(255, 88, 25, 150),
+    Color.fromARGB(255, 0, 38, 94),
   ],
 );
