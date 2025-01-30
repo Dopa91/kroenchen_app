@@ -3,18 +3,16 @@ import 'package:kroenchen_app/config/colors.dart';
 
 final ThemeData darkTheme = ThemeData(
   fontFamily: "Outfit",
-
-  // ✅ Verbesserte Textfarben
   textTheme: TextTheme(
     bodyMedium: TextStyle(
       fontSize: 18,
       fontFamily: "Outfit",
-      color: brighterPurple, // Harmonischer mit dem Hintergrund
+      color: brighterPurple,
     ),
     headlineMedium: TextStyle(
       fontSize: 42,
       fontFamily: "Outfit",
-      color: generalWhite, // Weiß für starke Kontraste
+      color: generalWhite,
     ),
     bodySmall: TextStyle(
       fontSize: 14,
@@ -22,44 +20,29 @@ final ThemeData darkTheme = ThemeData(
       color: generalWhite,
     ),
   ),
-
-  // ✅ Icons jetzt dunkler und kontrastreicher
   iconTheme: IconThemeData(color: brighterPurple),
-
-  // ✅ Dark Mode Farben
   brightness: Brightness.dark,
-
-  // ✅ Navigation Bar dunkler & harmonisch abgestimmt
   navigationBarTheme: NavigationBarThemeData(
-    indicatorColor: darkerBackgroundColorPurple, // Passend zum Hintergrund
+    indicatorColor: darkerBackgroundColorPurple,
     backgroundColor: darkerBackgroundColorPurple,
   ),
-
-  // ✅ Hintergrund bleibt transparent für dein Background Widget
   scaffoldBackgroundColor: Colors.transparent,
-
-  // ✅ Buttons dunkler & mit besserem Kontrast
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      backgroundColor:
-          darkerButtonBlue, // Dunkleres Blau für stärkeren Kontrast
-      foregroundColor: generalWhite, // Weißer Text
+      backgroundColor: darkerButtonBlue,
+      foregroundColor: generalWhite,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
     ),
   ),
-
-  // ✅ Cards mit angepasstem Dunkelton
   cardTheme: CardTheme(
-    color: darkerBrighterPurple, // Etwas heller, aber noch dark mode-friendly
+    color: darkerBrighterPurple,
     shadowColor: Colors.black,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
     ),
   ),
-
-  // ✅ Dialoge dunkler & besser integriert
   dialogTheme: DialogTheme(
     backgroundColor: darkerBackgroundColorPurple,
     titleTextStyle: TextStyle(
