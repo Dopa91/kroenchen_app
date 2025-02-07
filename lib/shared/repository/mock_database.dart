@@ -17,9 +17,16 @@ class MockDatabase implements DatabaseRepository {
   }
 
   @override
-  Future<List<DiaryEntry>> getDiaryEntries() async {
+  Future<List<DiaryEntry>> getDiaryEntries(
+      {int page = 0, int maxPageSites = 420}) async {
     await Future.delayed(Duration(seconds: 1));
-    return List.from(_diaryData);
+
+    // strat & end pages
+    final startIndex = page * maxPageSites;
+    if (startIndex >= _diaryData.length) return [];
+
+    final endIndex = startIndex + maxPageSites;
+    return _diaryData.sublist(startIndex, endIndex.clamp(0, _diaryData.length));
   }
 
   @override
@@ -99,7 +106,7 @@ class MockDatabase implements DatabaseRepository {
     _documentsData.clear();
   }
 
-  // Settingsscrren
+  // Settingsscreen
   @override
   Future<void> saveProfilePicture(String filePath) async {
     await Future.delayed(Duration(milliseconds: 100));

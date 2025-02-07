@@ -21,17 +21,36 @@ class SharedPreferencesDatabase implements DatabaseRepository {
     final jsonList = currentEntries.map((entry) => entry.toJson()).toList();
     await prefs.setString(diaryData, jsonEncode(jsonList));
   }
+// backup ( Testing with max Pages)
+  // @override
+  // Future<List<DiaryEntry>> getDiaryEntries() async {
+  //   await Future.delayed(Duration(seconds: 1));
+  //   final prefs = await SharedPreferences.getInstance();
+  //   final jsonString = prefs.getString(diaryData);
 
+  //   if (jsonString == null) return [];
+  //   final List<dynamic> jsonList = jsonDecode(jsonString);
+
+  //   return jsonList.map((entry) => DiaryEntry.fromJson(entry)).toList();
+  // }
   @override
-  Future<List<DiaryEntry>> getDiaryEntries() async {
+  Future<List<DiaryEntry>> getDiaryEntries(
+      {int page = 0, int maxPageSites = 420}) async {
     await Future.delayed(Duration(seconds: 1));
     final prefs = await SharedPreferences.getInstance();
     final jsonString = prefs.getString(diaryData);
-
     if (jsonString == null) return [];
-    final List<dynamic> jsonList = jsonDecode(jsonString);
 
-    return jsonList.map((entry) => DiaryEntry.fromJson(entry)).toList();
+    final List<dynamic> jsonList = jsonDecode(jsonString);
+    final allEntries =
+        jsonList.map((entry) => DiaryEntry.fromJson(entry)).toList();
+
+    // Paginierung
+    final startIndex = page * maxPageSites;
+    if (startIndex >= allEntries.length) return [];
+
+    final endIndex = startIndex + maxPageSites;
+    return allEntries.sublist(startIndex, endIndex.clamp(0, allEntries.length));
   }
 
   @override
