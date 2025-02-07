@@ -14,7 +14,8 @@ abstract class DatabaseRepository {
   Future<DiaryEntry> showDiaryEntry(DiaryEntry diaryEntry);
   Future<void> editDiaryEntry(DiaryEntry diaryEntry);
   Future<void> deleteDiaryEntry(DiaryEntry diaryEntry);
-  Future<List<DiaryEntry>> getDiaryEntries();
+  Future<List<DiaryEntry>> getDiaryEntries(
+      {required int page, required int maxPageSites});
 
   // Appointment
   Future<void> createAppointment(Appointment appointment);
