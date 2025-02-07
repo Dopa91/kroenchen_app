@@ -19,18 +19,61 @@ class DiaryScreen extends StatefulWidget {
 class DiaryScreenState extends State<DiaryScreen> {
   late DatabaseRepository databaseRepository =
       context.read<DatabaseRepository>();
-  late Future<List<DiaryEntry>> entriesFuture;
+  final List<DiaryEntry> _entriesFuture = [];
+  int _currentPage = 0;
+  final int _maxEntriesPage = 10;
+  bool _isLoading = false;
+  bool _moreEntries = true;
+
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    entriesFuture = databaseRepository.getDiaryEntries();
+    _loadMoreEntries();
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels ==
+            _scrollController.position.maxScrollExtent &&
+        _moreEntries) {
+      _loadMoreEntries();
+    }
+  }
+
+  Future<void> _loadMoreEntries() async {
+    if (_isLoading || !_moreEntries) return;
+
+    setState(() {
+      _isLoading = true;
+    });
+
+    final newEntries = await databaseRepository.getDiaryEntries(
+        page: _currentPage, maxPageSites: _maxEntriesPage);
+
+    setState(() {
+      _entriesFuture.addAll(newEntries);
+      _currentPage++;
+      _isLoading = false;
+      _moreEntries = newEntries.length ==
+          _maxEntriesPage; // Wenn weniger als maxpageSites zurückkommen, gibt es keine weiteren pages
+    });
   }
 
   void _refreshEntries() {
     setState(() {
-      entriesFuture = databaseRepository.getDiaryEntries();
+      _entriesFuture.clear();
+      _currentPage = 0;
+      _moreEntries = true;
     });
+    _loadMoreEntries();
   }
 
   void _openDiaryEntryDialog({DiaryEntry? diaryEntry}) {
@@ -63,12 +106,15 @@ class DiaryScreenState extends State<DiaryScreen> {
           child: Padding(
             padding: const EdgeInsets.all(4.0),
             child: DiaryEntryList(
-              entriesFuture: entriesFuture,
+              entriesFuture: _entriesFuture,
               onEdit: (entry) => _openDiaryEntryDialog(diaryEntry: entry),
               onDelete: (entry) async {
                 await databaseRepository.deleteDiaryEntry(entry);
                 _refreshEntries();
               },
+              isLoading: _isLoading,
+              moreEntries: _moreEntries,
+              scrollController: _scrollController,
             ),
           ),
         ),
