@@ -53,7 +53,18 @@ class _DiaryEntryDialogState extends State<DiaryEntryDialog> {
                 const InputDecoration(labelText: "Wie ging es dir heute?"),
           ),
           CheckboxListTile(
-            title: const Text("Fieber?"),
+            title: Row(
+              children: [
+                Text(
+                  "🤒",
+                  style: TextStyle(fontSize: 32),
+                ),
+                SizedBox(
+                  width: 16,
+                ),
+                Text("Fieber?"),
+              ],
+            ),
             value: hadFever,
             onChanged: (value) => setState(() => hadFever = value ?? false),
           ),
@@ -86,7 +97,10 @@ class _DiaryEntryDialogState extends State<DiaryEntryDialog> {
             widget.onSave(newEntry);
             Navigator.of(context).pop();
           },
-          child: const Text("Speichern"),
+          child: const Text(
+            "Speichern",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
       ],
     );
