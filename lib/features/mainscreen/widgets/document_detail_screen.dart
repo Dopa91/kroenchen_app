@@ -68,7 +68,9 @@ class _DocumentDetailScreenState extends State<DocumentDetailScreen> {
 
     if (shouldDelete == true) {
       // ignore: use_build_context_synchronously
-      final db = Provider.of<SharedPreferencesDatabase>(context, listen: false);
+      //final db = Provider.of<SharedPreferencesDatabase>(context, listen: false);
+      final db = Provider.of<DatabaseRepository>(context, listen: false);
+
       document.filePaths.removeAt(index);
       await db.editDocument(document);
       setState(() {});
