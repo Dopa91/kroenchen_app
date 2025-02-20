@@ -12,6 +12,9 @@ Color generalWhite = Color.fromARGB(255, 222, 226, 233);
 Color darkerBackgroundColorPurple = const Color.fromARGB(255, 75, 0, 150);
 Color backgroundColorPurple = const Color.fromARGB(255, 160, 81, 238);
 
+Color moon = const Color.fromARGB(255, 255, 255, 147);
+Color sun = const Color.fromARGB(255, 255, 174, 67);
+
 LinearGradient backgroundColorPurpleGradient = LinearGradient(
   begin: Alignment(0.39, -0.92),
   end: Alignment(-0.39, 0.92),
