@@ -6,7 +6,6 @@ import 'package:kroenchen_app/shared/models/document.dart';
 import 'package:kroenchen_app/shared/repository/database_repository.dart';
 import 'package:kroenchen_app/shared/widgets/background_image_widget.dart';
 import 'package:provider/provider.dart';
-import 'package:kroenchen_app/shared/repository/shared_preferences_database.dart';
 
 class DocumentDetailScreen extends StatefulWidget {
   final Document document;
