@@ -10,6 +10,7 @@ class SharedPreferencesDatabase implements DatabaseRepository {
   static const String diaryData = 'diary_entries';
   static const String documentKey = 'documents';
   static const String profilePictureKey = 'profile_picture';
+  static const String profileNameKey = 'profile_name';
 
   // DiaryEntry
   @override
@@ -170,5 +171,19 @@ class SharedPreferencesDatabase implements DatabaseRepository {
   Future<String?> getProfilePicture() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString(profilePictureKey);
+  }
+
+// Profilname speichern
+  @override
+  Future<void> saveProfileName(String name) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(profileNameKey, name);
+  }
+
+// Profilname abrufen
+  @override
+  Future<String?> getProfileName() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(profileNameKey);
   }
 }

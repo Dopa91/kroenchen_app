@@ -8,6 +8,7 @@ class MockDatabase implements DatabaseRepository {
   final List<DiaryEntry> _diaryData = [];
   final List<Document> _documentsData = [];
   String? _profilePicturePath;
+  String _profileName = "MusterNutzer"; // Default Name
 
   // Diary
   @override
@@ -117,5 +118,17 @@ class MockDatabase implements DatabaseRepository {
   Future<String?> getProfilePicture() async {
     await Future.delayed(Duration(milliseconds: 100));
     return _profilePicturePath;
+  }
+
+  @override
+  Future<void> saveProfileName(String name) async {
+    await Future.delayed(Duration(milliseconds: 100));
+    _profileName = name;
+  }
+
+  @override
+  Future<String?> getProfileName() async {
+    await Future.delayed(Duration(milliseconds: 100));
+    return _profileName;
   }
 }

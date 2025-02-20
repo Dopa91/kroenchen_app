@@ -33,4 +33,8 @@ abstract class DatabaseRepository {
   // Profile Picture
   Future<void> saveProfilePicture(String filePath);
   Future<String?> getProfilePicture();
+
+  // User - Profilname
+  Future<void> saveProfileName(String name);
+  Future<String?> getProfileName();
 }
