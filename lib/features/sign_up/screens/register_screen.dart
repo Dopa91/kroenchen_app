@@ -42,12 +42,19 @@ class RegisterScreenStart extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.only(bottom: 48),
                     child: Text(
-                      "Wie möchtest du genannt werden ?",
+                      "Willkommen!\nDeine E-Mail und dein Passwort😄",
+                      textAlign: TextAlign.center,
                       style: TextStyle(),
                     ),
                   ),
                   const TextFieldBox(
-                    text: 'Name',
+                    text: 'E-Mail',
+                  ),
+                  const TextFieldBox(
+                    text: 'Passwort',
+                  ),
+                  const TextFieldBox(
+                    text: 'Passwort.... du weißt warum..',
                   ),
                   const Expanded(
                     child: SizedBox(),
