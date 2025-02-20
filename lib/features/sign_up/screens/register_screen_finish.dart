@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kroenchen_app/features/sign_up/widgets/signup_loading_bar.dart';
 import 'package:kroenchen_app/shared/widgets/background_image_widget.dart';
 import 'package:kroenchen_app/shared/widgets/my_individual_button.dart';
 
@@ -8,69 +7,42 @@ class RegisterScreenFinish extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String userName =
+        ModalRoute.of(context)?.settings.arguments as String? ?? "MusterNutzer";
+
     return BackgroundImageWidget(
       image: null,
       child: Scaffold(
         appBar: AppBar(
           forceMaterialTransparency: true,
+          automaticallyImplyLeading: false,
         ),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(
-              left: 24,
-              right: 24,
-              bottom: 72,
-            ),
-            child: Center(
-              child: Column(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 24),
-                    child: Text(
-                      "Fortschrittsbalken",
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  const SignUpLoadingBar(
-                    percentageSizeOne: 1,
-                    percentageSizeTwo: 0,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: SizedBox(),
-                  ),
-                  Expanded(
-                    flex: 6,
-                    child: SingleChildScrollView(
-                      child: const Image(
-                        image: AssetImage("assets/images/k_logo.png"),
-                      ),
-                    ),
-                  ),
-                  const Text(
-                    "Herzlich Willkommen,",
-                    style: TextStyle(fontSize: 28),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Image(
-                      image: AssetImage("assets/images/k_crown.png"),
-                    ),
-                  ),
-                  const Text(
-                    "MusterNutzer",
-                    style: TextStyle(),
-                  ),
-                  const Expanded(
-                    child: SizedBox(),
-                  ),
-                  MyIndividualButton(
-                      newText: "Zur Homepage",
-                      nextSite: () => Navigator.pushNamed(
-                          context, "/bottomnavigationbarmain"),
-                      icon: null),
-                ],
-              ),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 72),
+            child: Column(
+              children: [
+                const Expanded(flex: 1, child: SizedBox()),
+                const Image(image: AssetImage("assets/images/k_logo.png")),
+                const SizedBox(height: 16),
+                const Text(
+                  "Herzlich Willkommen,",
+                  style: TextStyle(fontSize: 28),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  userName, // 🔥 Name vom ersten Screen
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                const Expanded(flex: 2, child: SizedBox()),
+                MyIndividualButton(
+                  newText: "Zur Homepage",
+                  nextSite: () =>
+                      Navigator.pushNamed(context, "/bottomnavigationbarmain"),
+                  icon: Icons.home,
+                ),
+              ],
             ),
           ),
         ),
