@@ -33,7 +33,10 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.pushNamed(context, "/bottomnavigationbarmain");
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Login fehlgeschlagen: ${e.toString()}")),
+        SnackBar(
+          content:
+              Text("Login fehlgeschlagen:Was du machen sachen ${e.toString()}"),
+        ),
       );
 
       log("Fehler beim Login: $e");
