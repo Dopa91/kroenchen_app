@@ -13,7 +13,7 @@ import 'package:kroenchen_app/shared/widgets/my_individual_button.dart';
 import 'package:kroenchen_app/shared/repository/auth_repository.dart';
 import 'package:provider/provider.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends StatefulWidget {
   const SettingsScreen({
     super.key,
     required this.isSwitched,
@@ -22,6 +22,25 @@ class SettingsScreen extends StatelessWidget {
 
   final bool isSwitched;
   final void Function(bool) onChanged;
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  String userName = "MusterNutzer";
+
+  @override
+  void initState() {
+    super.initState();
+    _loadProfileName();
+  }
+
+  Future<void> _loadProfileName() async {
+    final db = Provider.of<DatabaseRepository>(context, listen: false);
+    final name = await db.getProfileName();
+    setState(() => userName = name ?? "MusterNutzer");
+  }
 
   Future<void> logout(BuildContext context) async {
     final authRepo = Provider.of<AuthRepository>(context, listen: false);
@@ -41,6 +60,42 @@ class SettingsScreen extends StatelessWidget {
         const SnackBar(content: Text("Profilbild erfolgreich aktualisiert!")),
       );
     }
+  }
+
+  Future<void> _changeProfileName(BuildContext context) async {
+    final TextEditingController nameController = TextEditingController();
+    final db = Provider.of<DatabaseRepository>(context, listen: false);
+
+    await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Profilname ändern"),
+        content: TextField(
+          controller: nameController,
+          decoration: const InputDecoration(hintText: "Neuer Name"),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text("Abbrechen"),
+          ),
+          TextButton(
+            onPressed: () async {
+              final newName = nameController.text.trim();
+              if (newName.isNotEmpty) {
+                await db.saveProfileName(newName);
+                setState(() => userName = newName); // 🔥 UI-Update
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Profilname geändert zu '$newName'")),
+                );
+                Navigator.of(context).pop();
+              }
+            },
+            child: const Text("Speichern"),
+          ),
+        ],
+      ),
+    );
   }
 
   Future<void> showLogoutAlertDialog(BuildContext context) async {
@@ -81,14 +136,15 @@ class SettingsScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 16.0),
               child: AnimatedToggleSwitch<bool>.dual(
-                current: isSwitched,
+                current: widget.isSwitched,
                 first: false,
                 second: true,
-                onChanged: onChanged,
+                onChanged: widget.onChanged,
                 style: ToggleStyle(
                   backgroundColor: Colors.black12,
-                  indicatorColor:
-                      isSwitched ? buttonBlue : darkerBackgroundColorPurple,
+                  indicatorColor: widget.isSwitched
+                      ? buttonBlue
+                      : darkerBackgroundColorPurple,
                   borderColor: Colors.grey.shade800,
                 ),
                 iconBuilder: (value) => value
@@ -104,15 +160,9 @@ class SettingsScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Expanded(
-                  flex: 2,
-                  child: SizedBox(height: 16),
-                ),
+                const Expanded(flex: 2, child: SizedBox(height: 16)),
                 const ProfilAccountPicture(radius: 96),
-                const Expanded(
-                  flex: 4,
-                  child: SizedBox(height: 8),
-                ),
+                const Expanded(flex: 4, child: SizedBox(height: 8)),
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.white.withAlpha(50),
@@ -133,7 +183,7 @@ class SettingsScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(16),
                         child: BackdropFilter(
                           filter: ImageFilter.blur(sigmaX: 0.42, sigmaY: 0.42),
-                          child: SizedBox(
+                          child: const SizedBox(
                             height: 69,
                             width: double.infinity,
                           ),
@@ -143,17 +193,17 @@ class SettingsScreen extends StatelessWidget {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Text(
+                            const Text(
                               "Schön dich zu sehen!",
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             Text(
-                              "Mina",
+                              userName, // 🔥 Dynamisch geladener Name
                               textAlign: TextAlign.center,
                               style: const TextStyle(
                                 color: Colors.black,
@@ -167,17 +217,14 @@ class SettingsScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Expanded(
-                  flex: 5,
-                  child: SizedBox(height: 16),
-                ),
+                const Expanded(flex: 5, child: SizedBox(height: 16)),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 42),
                   child: Column(
                     children: [
                       MyIndividualButton(
                         newText: "Profilname ändern",
-                        nextSite: null,
+                        nextSite: () => _changeProfileName(context),
                         icon: Ionicons.people_outline,
                       ),
                       const SizedBox(height: 16),
@@ -192,10 +239,9 @@ class SettingsScreen extends StatelessWidget {
                         nextSite: () => showLogoutAlertDialog(context),
                         icon: Ionicons.log_out_outline,
                       ),
-                      const SizedBox(height: 16),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
