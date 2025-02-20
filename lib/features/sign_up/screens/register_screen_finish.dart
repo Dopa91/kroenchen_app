@@ -31,11 +31,16 @@ class RegisterScreenFinish extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  userName, // 🔥 Name vom ersten Screen
+                  userName,
                   style: const TextStyle(
-                      fontSize: 24, fontWeight: FontWeight.bold),
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                const Expanded(flex: 2, child: SizedBox()),
+                const Expanded(
+                  flex: 2,
+                  child: SizedBox(),
+                ),
                 MyIndividualButton(
                   newText: "Zur Homepage",
                   nextSite: () =>
