@@ -19,20 +19,22 @@ Die App steht für **Stärke**, **Durchhaltevermögen** und unterstützt im Allt
 
 ### 📝 **Tagebuch**  
 - Symptome & Gedanken täglich festhalten  
+( Coming soon ! 👨🏻‍🔧)
 - Streak-System (🔥 für tägliche Einträge, 👑 für 7 Tage in Folge, 🎖 für 30 Tage)  
 - Badges für Meilensteine (📝 "Schreiberling", 🌟 "Meister der Reflexion")  
+( Coming soon ! 👨🏻‍🔧)
 
 ### 📅 **Kalender & Termine**  
 - Überblick über Arzttermine & wichtige Ereignisse  
 - Bearbeitbare & löschbare Termine  
+( Coming soon ! 👨🏻‍🔧)
 
 ### 📂 **Dokumentenverwaltung**  
 - Sichere Speicherung medizinischer Dokumente  
 - Schnelles Hochladen & Abrufen  
 
 ### 🌙 **Darkmode**  
-- **Eleganter Theme-Switch** mit animiertem Toggle  
-- Automatische Speicherung der Theme-Präferenz  
+- **Eleganter Theme-Switch** mit animiertem Toggle   
 
 ---
 
@@ -40,6 +42,7 @@ Die App steht für **Stärke**, **Durchhaltevermögen** und unterstützt im Allt
 - 🔥 **Streak-System:** Für tägliche Tagebucheinträge  
 - 👑 **Badges:** Für erreichte Ziele & Serien  
 - 🌟 **Motivation durch Meilensteine**  
+( Coming soon ! 👨🏻‍🔧)
 
 ---
 
