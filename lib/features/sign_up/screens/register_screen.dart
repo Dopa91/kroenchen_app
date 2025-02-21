@@ -18,6 +18,9 @@ class _RegisterScreenStartState extends State<RegisterScreenStart> {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
+  bool _isPasswordVisible = false; // 👁️ Toggle für Passwort
+  bool _isConfirmPasswordVisible = false; // 👁️ Toggle für Passwort-Bestätigung
+
   Future<void> _registerUser() async {
     final authRepo = Provider.of<AuthRepository>(context, listen: false);
     final name = nameController.text.trim();
@@ -61,13 +64,33 @@ class _RegisterScreenStartState extends State<RegisterScreenStart> {
                 TextFieldBox(
                   text: 'Passwort',
                   controller: passwordController,
-                  obscureText: true,
+                  obscureText: !_isPasswordVisible,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _isPasswordVisible
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      color: Colors.grey,
+                    ),
+                    onPressed: () => setState(
+                        () => _isPasswordVisible = !_isPasswordVisible),
+                  ),
                 ),
                 const SizedBox(height: 16),
                 TextFieldBox(
                   text: 'Passwort bestätigen',
                   controller: confirmPasswordController,
-                  obscureText: true,
+                  obscureText: !_isConfirmPasswordVisible,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _isConfirmPasswordVisible
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      color: Colors.grey,
+                    ),
+                    onPressed: () => setState(() =>
+                        _isConfirmPasswordVisible = !_isConfirmPasswordVisible),
+                  ),
                 ),
                 const Expanded(child: SizedBox()),
                 MyIndividualButton(

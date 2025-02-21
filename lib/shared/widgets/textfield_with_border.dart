@@ -7,11 +7,13 @@ class TextFieldBox extends StatelessWidget {
     required this.text,
     this.controller,
     this.obscureText = false,
+    this.suffixIcon, // 👁️ Neues Argument für das Icon
   });
 
   final String text;
   final TextEditingController? controller;
   final bool obscureText;
+  final Widget? suffixIcon; // 👁️ Icon-Widget für Passwort-Toggle
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class TextFieldBox extends StatelessWidget {
         obscureText: obscureText,
         decoration: InputDecoration(
           hintText: text,
+          suffixIcon: suffixIcon, // 👁️ Hier wird das Icon eingebunden
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: brighterPurple),
           ),
