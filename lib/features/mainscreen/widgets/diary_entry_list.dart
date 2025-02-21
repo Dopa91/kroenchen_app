@@ -59,21 +59,21 @@ class DiaryEntryList extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Fieber: ${entry.hasFever ? 'Ja' : 'Nein'}",
+                        "🤒 Fieber: ${entry.hasFever ? 'Ja' : 'Nein'}",
                         style: const TextStyle(
                           fontSize: 16,
                           color: Colors.black,
                         ),
                       ),
                       Text(
-                        "Schmerzen: ${entry.pain ? 'Ja' : 'Nein'}",
+                        "🤕 Schmerzen: ${entry.pain ? 'Ja' : 'Nein'}",
                         style: const TextStyle(
                           fontSize: 16,
                           color: Colors.black,
                         ),
                       ),
                       Text(
-                        "Blut: ${entry.blood ? 'Ja' : 'Nein'}",
+                        "🩸 Blut: ${entry.blood ? 'Ja' : 'Nein'}",
                         style: const TextStyle(
                           fontSize: 16,
                           color: Colors.black,
